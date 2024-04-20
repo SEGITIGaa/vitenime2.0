@@ -3,6 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: "Satoshi";
+    src: url(/public/font/Satoshi-Variable.ttf);
+  }
+  @font-face {
+    font-family: "FiraSans";
+    src: url(/public/font/FiraSans-Variable.ttf);
+  }
+}
+
 @layer utilities {
   *::-webkit-scrollbar {
     @apply hidden;

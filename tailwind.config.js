@@ -12,7 +12,8 @@ module.exports = {
         third: "#f5f5f5",
       },
       fontFamily: {
-        poppins: "Poppins",
+        fira: "FiraSans",
+        satoshi: "Satoshi",
       },
     },
   },
