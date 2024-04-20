@@ -4,10 +4,12 @@ import "./App.css";
 
 function App() {
   const [ongoingAnimeList, setOngoingAnimeList] = useState([]);
+  const [animeList, setAnimeList] = useState([]);
   const [genres, setGenres] = useState([]);
   
   useEffect(() => {
     getOngoingAnimes();
+    getAllAnimes()
     getGenres()
   }, []);
   
@@ -18,6 +20,15 @@ function App() {
     );
     const data = await response.json();
     setOngoingAnimeList(data);
+  };
+
+  // ONGOING ANIME
+  const getAllAnimes = async () => {
+    const response = await fetch(
+      "https://web-anime-psi.vercel.app/anime"
+    );
+    const data = await response.json();
+    setAnimeList(data);
   };
 
 
@@ -32,7 +43,7 @@ function App() {
     <Router>
       <Suspense fallback={<LoadingPage/>}>
         <Routes>
-          <Route path="/" element={<Home ongoingAnimes={ongoingAnimeList} genres={genres} />} />
+          <Route path="/" element={<Home ongoingAnimes={ongoingAnimeList} genres={genres} AllAnimes={animeList} />} />
           <Route path="/ongoing" element={<Ongoing animeList={ongoingAnimeList} getOngoingAnime={getOngoingAnimes} />} />
           <Route path="/anime/:slug" element={<Anime />} />
           <Route path="/anime/genre/:slug" element={<AnimeByGenre />} />

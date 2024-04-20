@@ -17,6 +17,7 @@ import {
 import BackBtn from "./components/BackBtn";
 import AnimeDetail from "./components/AnimeDetail";
 import StreamServices from "./components/StreamServices";
+import Recomendations from "./components/Recomendations";
 
 import Card from "./components/Card";
 import Navbar from "./components/Navbar";
@@ -30,7 +31,9 @@ import Anime from "./pages/Anime";
 import AnimeByGenre from "./pages/AnimeByGenre";
 import Episode from "./pages/Episode";
 
+
 export {
+  Recomendations,
   EpisodesOnEpisode,
   StreamServices,
   AnimeDetail,

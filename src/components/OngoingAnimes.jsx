@@ -4,9 +4,9 @@ const OngoingAnimes = ({ ongoingAnimes }) => {
   return (
     <section className="flex flex-col gap-5">
       <div className="w-full items-center justify-between flex">
-        <h1 className="h1">Ongoing</h1>
+        <h1 className="h1">Lagi ongoing</h1>
         <Link to="/ongoing" className="arrow-btn">
-          more
+          lengkapnya
           <img src={"/arrow.svg"} alt="" height={18} width={18} />
         </Link>
       </div>
