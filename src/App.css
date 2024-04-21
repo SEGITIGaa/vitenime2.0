@@ -31,7 +31,7 @@
     @apply w-full flex items-center gap-4 py-4 pt-10;
   }
   .h1 {
-    @apply text-second font-semibold text-xl;
+    @apply text-second font-bold text-xl;
   }
   .arrow-btn {
     @apply text-second font-semibold text-xs flex items-center gap-3 cursor-pointer hover:bg-slate-50 hover:px-4 py-2 rounded-full transition-all duration-300 w-max;
@@ -40,12 +40,12 @@
     @apply flex items-center overflow-auto snap-x snap-mandatory scroll-p-2 gap-5;
   }
   .input-search {
-    @apply w-5/6 md:w-4/6 focus:bg-slate-50 outline-none rounded-lg px-4 h-10 placeholder:text-xs placeholder:font-semibold placeholder:text-second border-second focus:placeholder:text-second/50 transition-all duration-300;
+    @apply w-5/6 md:w-4/6 shadow-md shadow-slate-50 outline-none rounded-lg px-4 h-10 placeholder:text-xs placeholder:font-semibold placeholder:text-second border-second focus:placeholder:text-second/50 transition-all duration-300;
   }
 
   /* PAGE ANIME */
   .anime-bg {
-    @apply bg-cover bg-center md:hidden fixed h-2/3 pb-20 w-full left-0 top-0 right-0 -z-10;
+    @apply bg-cover bg-center block md:hidden fixed h-2/3 pb-20 w-full left-0 top-0 right-0;
   }
   .anime-img {
     @apply w-1/5 rounded-sm hidden md:block;

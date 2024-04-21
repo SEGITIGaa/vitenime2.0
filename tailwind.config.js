@@ -7,9 +7,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        main: "#ffffff",
+        main: "#f5f5f5",
         second: "#1e1e1e",
-        third: "#f5f5f5",
+        third: "#fff",
       },
       fontFamily: {
         fira: "FiraSans",
