@@ -17,6 +17,7 @@ module.exports = {
       },
       backgroundImage: {
         "frame" : "url(/public/frame-bg.png)",
+        "frame-2" : "url(/public/frame2.png)",
       },
     },
   },

@@ -1,11 +1,9 @@
-import React from "react";
-
 const LoadingCardSmall = () => {
   return (
     <>
       {Array.from({ length: 9 }).map((_, index) => (
         <div className="snap-start snap-always h-max w-full flex flex-col gap-3 items-center" key={index}>
-          <div className="object-cover h-60 w-36 md:w-60 md:h-72 rounded-md bg-third animate-pulse"></div>
+          <div className="object-cover h-60 w-40 md:w-60 md:h-72 rounded-md bg-third animate-pulse"></div>
           <div className="flex flex-col gap-2 items-center w-5/6">
             <p className="w-full h-5 bg-third animate-pulse rounded-lg"></p>
             <p className=" w-1/3 h-5 bg-third animate-pulse rounded-lg"></p>

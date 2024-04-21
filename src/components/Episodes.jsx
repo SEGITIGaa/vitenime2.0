@@ -3,17 +3,17 @@ import { Link } from "../export";
 const Episodes = ({ episodes, slug }) => {
   return (
     <div className="">
-      <h1 className="h1 mb-5">Episodes</h1>
+      <h1 className="h1 mb-5 text-xl font-fira">Episodes</h1>
       <div className="flex flex-col gap-5 max-h-96 overflow-y-scroll">
         <div className="grid grid-cols-6 md:grid-cols-4 gap-4 md:w-2/3">
           {episodes.map((episode, index) => (
             <Link
               to={`/anime/${slug}/${episode.slug}`}
               key={index}
-              className="flex flex-col md:flex-row gap-3 items-center justify-between px-3 py-2 rounded-lg border border-third bg-third transition-all duration-300 hover:animate-pulse"
+              className="flex flex-col md:flex-row gap-3 items-center justify-between px-4 py-2 rounded-lg border border-third bg-third transition-all duration-300 hover:animate-pulse"
             >
               <p className="font-bold text-lg text-second">Eps</p>
-              <p className="text-lg break-words font-bold text-second">
+              <p className="text-2xl break-words font-bold text-second font-fira">
                 {episodes.length - index}
               </p>
             </Link>
