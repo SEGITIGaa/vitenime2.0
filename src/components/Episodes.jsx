@@ -5,15 +5,15 @@ const Episodes = ({ episodes, slug }) => {
     <div className="">
       <h1 className="h1 mb-5">Episodes</h1>
       <div className="flex flex-col gap-5 max-h-96 overflow-y-scroll">
-        <div className="grid grid-cols-6 gap-4 md:w-2/3">
+        <div className="grid grid-cols-6 md:grid-cols-4 gap-4 md:w-2/3">
           {episodes.map((episode, index) => (
             <Link
               to={`/anime/${slug}/${episode.slug}`}
               key={index}
-              className="flex flex-col gap-3 items-center px-3 py-2 rounded-lg border border-third hover:bg-third transition-all duration-300"
+              className="flex flex-col md:flex-row gap-3 items-center justify-between px-3 py-2 rounded-lg border border-third bg-third transition-all duration-300 hover:animate-pulse"
             >
-              <p className="font-bold text-sm">Eps</p>
-              <p className="text-lg md:w-full break-words font-bold">
+              <p className="font-bold text-lg text-second">Eps</p>
+              <p className="text-lg break-words font-bold text-second">
                 {episodes.length - index}
               </p>
             </Link>

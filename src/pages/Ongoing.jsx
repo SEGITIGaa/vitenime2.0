@@ -1,12 +1,4 @@
-import {
-  BackBtn,
-  InfiniteScroll,
-  Layout,
-  LoadingCardSmall,
-  Navbar,
-  SmallCard,
-  useEffect,
-  useState,
+import { BackBtn, InfiniteScroll, Layout, LoadingCardSmall, Navbar, SmallCard, useEffect, useState,
 } from "../export";
 
 const Ongoing = ({}) => {
@@ -51,11 +43,7 @@ const Ongoing = ({}) => {
 
   return (
     <Layout>
-      <Navbar
-        ongoingAnimes={ongoing}
-        setRequest={setRequest}
-        getAnimes={getOngoingAnime}
-      />
+      <Navbar ongoingAnimes={ongoing} setRequest={setRequest} getAnimes={getOngoingAnime}/>
       <BackBtn />
       <h1 className="h1 mt-5">Ongoing</h1>
       <InfiniteScroll

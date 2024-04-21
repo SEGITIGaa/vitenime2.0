@@ -1,13 +1,4 @@
-import {
-  useState,
-  BackBtn,
-  Layout,
-  LoadingPage,
-  StreamServices,
-  useParams,
-  useEffect,
-  Link,
-  EpisodesOnEpisode,
+import { useState, BackBtn, Layout, LoadingPage, StreamServices, useParams, useEffect, Link, EpisodesOnEpisode,
 } from "../export";
 
 const Episode = () => {
@@ -67,8 +58,8 @@ const Episode = () => {
       <div className="flex flex-col gap-5 mb-10">
         <div className="flex flex-col gap-5">
           <div className="flex flex-col md:flex-row gap-5 justify-between">
+            <h1 className="h1 md:w-2/3">{eps.judul}</h1>
             <StreamServices episode={eps} nonce={nonce} setIframe={setIframe} />
-            <h1 className="h1 w-2/3">{eps.judul}</h1>
           </div>
           <iframe
             allowFullScreen={true}

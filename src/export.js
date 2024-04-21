@@ -7,6 +7,7 @@ import {
   LoadingCardSmall,
   LoadingCard,
   LoadingPage,
+  AnimeLoading,
 } from "./components/Loading";
 
 import {
@@ -33,6 +34,7 @@ import Episode from "./pages/Episode";
 
 
 export {
+  AnimeLoading,
   Recomendations,
   EpisodesOnEpisode,
   StreamServices,
