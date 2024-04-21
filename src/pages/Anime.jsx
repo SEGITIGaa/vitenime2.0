@@ -19,19 +19,19 @@ const Anime = () => {
 
       <BackBtn className={"arrow-btn bg-main px-4 md:px-0"} />
 
-      <div className={`anime-bg`} style={{ backgroundImage: `url(${anime.gambar})` }}>
+      {/* <div className={`anime-bg`} style={{ backgroundImage: `url(${anime.gambar})` }}>
         <div className="bg-blured">
           <img src={anime.gambar} alt={anime.judul} className="w-2/5 rounded-sm"/>
         </div>
-      </div>
+      </div> */}
 
-      <div className="anime-container">
         {/* ANIME-INFO */}
        <AnimeDetail anime={anime}/>
 
         {/* ANIME EPISODES */}
         <Episodes episodes={anime.episodes} slug={slug}/>
-      </div>
+      {/* <div className="anime-container">
+      </div> */}
 
     </Layout>
   ) : (

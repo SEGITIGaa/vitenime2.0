@@ -10,7 +10,8 @@ const AnimeDetail = ({ anime }) => {
   const durasi = anime ? anime.durasi.split(": ")[1] : "";
 
   return (
-    <div className="flex gap-5 md:gap-10">
+    <div className="flex flex-col md:flex-row items-center gap-5 md:gap-10 bg-frame bg-contain bg-top md:bg-left bg-no-repeat">
+
       <img src={anime.gambar} alt={anime.judul} className="anime-img" />
 
       <div className="flex flex-col gap-10 w-full md:w-2/3">

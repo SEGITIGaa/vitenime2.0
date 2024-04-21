@@ -2,25 +2,23 @@ import { Link } from "../export";
 
 const Episodes = ({ episodes, slug }) => {
   return (
-    <div className="flex flex-col gap-5 max-h-96">
-      <h1 className="h1">Episodes</h1>
-
-      <div className="flex flex-col gap-2 md:w-2/3">
-        {episodes.map((episode, index) => (
-          <Link
-            to={`/anime/${slug}/${episode.slug}`}
-            key={index}
-            className="flex items-center justify-between border rounded-lg px-4 py-3 border-second"
-          >
-            <div className="flex flex-col gap-2">
-              <p className="text-xs md:text-lg w-2/3 md:w-full break-words font-semibold">
-                {episode.judul}
+    <div className="">
+      <h1 className="h1 mb-5">Episodes</h1>
+      <div className="flex flex-col gap-5 max-h-96 overflow-y-scroll">
+        <div className="grid grid-cols-6 gap-4 md:w-2/3">
+          {episodes.map((episode, index) => (
+            <Link
+              to={`/anime/${slug}/${episode.slug}`}
+              key={index}
+              className="flex flex-col gap-3 items-center px-3 py-2 rounded-lg border border-third hover:bg-third transition-all duration-300"
+            >
+              <p className="font-bold text-sm">Eps</p>
+              <p className="text-lg md:w-full break-words font-bold">
+                {episodes.length - index}
               </p>
-              <p className="text-[10px] md:text-xs">{episode.tanggal}</p>
-            </div>
-            <img src="/arrow.svg" alt="arrow" className="w-4 h-4" />
-          </Link>
-        ))}
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

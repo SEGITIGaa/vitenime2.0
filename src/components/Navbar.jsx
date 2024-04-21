@@ -15,7 +15,7 @@ const Navbar = ({ongoingAnimes, getAnimes, setRequest}) => {
         getAnimes(true, `search=${value}`)
       }}>
 
-      <button type='submit' className='text-second bg-third rounded-xl p-3 shadow-md shadow-slate-50'>
+      <button type='submit' className='bg-third rounded-xl p-3 shadow-md'>
         <img src="/Search.svg" alt="" className='w-5 h-5'/>
       </button>
   

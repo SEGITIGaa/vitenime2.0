@@ -7,13 +7,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        main: "#f5f5f5",
-        second: "#1e1e1e",
-        third: "#fff",
+        main: "#222831",
+        second: "#F2F2F2",
+        third: "#393E46",
       },
       fontFamily: {
         fira: "FiraSans",
         satoshi: "Satoshi",
+      },
+      backgroundImage: {
+        "frame" : "url(/public/frame-bg.png)",
       },
     },
   },
