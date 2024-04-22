@@ -1,4 +1,13 @@
-import { useState, BackBtn, Layout, LoadingPage, StreamServices, useParams, useEffect, Link, EpisodesOnEpisode,
+import {
+  useState,
+  BackBtn,
+  Layout,
+  LoadingPage,
+  StreamServices,
+  useParams,
+  useEffect,
+  Link,
+  EpisodesOnEpisode,
 } from "../export";
 
 const Episode = () => {
@@ -7,8 +16,11 @@ const Episode = () => {
   const [Iframe, setIframe] = useState();
   const [nonce, setNonce] = useState();
   const [anime, setAnime] = useState([]);
-  console.log(anime);
+  const [show, setShow] = useState(false)
 
+  const handleShow = () => {
+    setShow(!show)
+  }
   const download = [
     "d360pmp4",
     "d480pmp4",
@@ -55,10 +67,12 @@ const Episode = () => {
   return eps ? (
     <Layout>
       <BackBtn />
-      <div className="flex flex-col gap-5 mb-10">
+      <div className="flex flex-col md:flex-row gap-5 mb-10">
+
+        {/* IFRAME */}
         <div className="flex flex-col gap-5">
           <div className="flex flex-col md:flex-row gap-5 justify-between">
-            <h1 className="h1 md:w-2/3">{eps.judul}</h1>
+            <h1 className="header md:w-2/3">{eps.judul}</h1>
             <StreamServices episode={eps} nonce={nonce} setIframe={setIframe} />
           </div>
           <iframe
@@ -69,10 +83,14 @@ const Episode = () => {
         </div>
 
         {/* EPISODE */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 md:w-1/3">
+        <div className="flex items-center justify-between">
           <h1 className="header">Episodes</h1>
-          <EpisodesOnEpisode anime={anime} slug={slug} name={name} />
+          <div className="cursor-pointer" onClick={handleShow}>tampilkan</div>
         </div>
+          <EpisodesOnEpisode anime={anime} slug={slug} name={name} show={show} />
+        </div>
+
       </div>
 
       {/* lINK DOWNLAOD */}
@@ -80,25 +98,24 @@ const Episode = () => {
         {download.map(
           (type, index) =>
             eps.download[type].length > 0 && (
-              <div className="flex flex-col gap-3" key={index}>
-                <p className="text-third bg-second rounded-full px-4 py-1 w-max font-semibold text-sm md:text-lg">
-                  {`${type.split("p")[0].replace("d", " ")}P `}
+              <div className="flex flex-col gap-4 border p-4 rounded-xl border-third" key={index}>
+                <p className="text-second rounded-lg w-max font-semibold font-fira text-sm md:text-lg">
+                  {`${type.split("p")[0].replace("d", " ")}p `}
                   <span className="text-[10px]">
                     {type.includes("mp4") ? "MP4" : "MKV"}
                   </span>
                 </p>
 
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
                   {eps.download[type].map((dt, index) => (
                     <a
                       href={dt.href}
                       key={index}
-                      className="flex items-center justify-between border hover:bg-third transition-all duration-300 hover:border-third border-second w-full gap-3 rounded-lg md:py-3 p-2 md:px-4"
+                      className="flex items-center justify-between bg-third transition-all duration-300 w-full gap-3 rounded-lg md:py-3 p-2 md:px-4"
                     >
                       <p className="text-xs md:text-sm text-second font-semibold">
                         {dt.nama}
                       </p>
-                      <img src="/download.svg" alt="" className="w-3 h-3 md:w-5 md:h-5" />
                     </a>
                   ))}
                 </div>

@@ -79,6 +79,6 @@
   }
 
   .episode-frame {
-    @apply rounded-lg border border-second h-72 md:h-[450px] w-full;
+    @apply rounded-lg ring ring-third h-72 md:h-[450px] w-full;
   }
 }
