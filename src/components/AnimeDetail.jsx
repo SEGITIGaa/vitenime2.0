@@ -27,8 +27,8 @@ const AnimeDetail = ({ anime }) => {
           <h1 className="anime-title">{anime.judul}</h1>
 
           <p className="anime-info">
-            {rilis} <span className="text-second font-clash font-semibold">|</span> {status} 
-            <span className="text-second font-clash font-semibold"> |</span> {durasi}/eps
+            {rilis} <span className="text-second font-clash font-semibold mx-2">|</span> {status} 
+            <span className="text-second font-clash font-semibold mx-2">|</span> {durasi}/eps
           </p>
         </div>
 

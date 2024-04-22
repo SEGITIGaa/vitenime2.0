@@ -69,7 +69,7 @@ const AnimeByGenre = () => {
       />
       <BackBtn />
       <section className="flex flex-col items-start gap-5 pt-10">
-        <h1 className="h1">{slug} anime collection</h1>
+        <h1 className="header">kumpulan anime {slug} buat kamu</h1>
 
         <InfiniteScroll
           dataLength={filteredAnimesByGenre.length}

@@ -8,6 +8,7 @@ import {
   LoadingCard,
   LoadingPage,
   AnimeLoading,
+  EpisodeLoading,
 } from "./components/Loading";
 
 import {
@@ -31,9 +32,12 @@ import Ongoing from "./pages/Ongoing";
 import Anime from "./pages/Anime";
 import AnimeByGenre from "./pages/AnimeByGenre";
 import Episode from "./pages/Episode";
+import GenresPage from "./pages/Genres";
 
 
 export {
+  GenresPage,
+  EpisodeLoading,
   AnimeLoading,
   Recomendations,
   EpisodesOnEpisode,

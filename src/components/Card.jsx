@@ -4,19 +4,19 @@ const Card = ({ anime }) => {
   return (
     <Link
       to={`/anime/${anime.slug}`}
-      className="snap-start snap-always h-96 flex flex-col gap-3 items-center cursor-pointer"
+      className="snap-start snap-always h-96 col gap-3 cursor-pointer relative"
     >
       <img
         src={anime.gambar}
         alt={anime.judul}
-        className="object-cover h-72 rounded-md"
+        className="object-cover h-80 rounded-lg"
       />
-      <div className="flex flex-col gap-2 items-center w-56">
-        <p className="text-second font-semibold break-words w-52 truncate text-center text-lg">
+      <div className="col gap-2 w-56">
+        <p className="text-second font-clash font-semibold break-words w-52 truncate text-lg">
           {anime.judul}
         </p>
-        <p className="text-second break-words truncate text-center text-xs">
-          episode {anime.eps}
+        <p className="text-second break-words absolute font-fira font-semibold top-2 left-2 text-xs bg-third rounded-xl px-4 w-max py-1.5">
+          eps {anime.eps}
         </p>
       </div>
     </Link>

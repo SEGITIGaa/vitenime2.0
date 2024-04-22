@@ -14,8 +14,7 @@ const LoadingCardSmall = () => {
 
 const LoadingCard = () => {
   return (
-    <>
-      {Array.from({ length: 7 }).map((_, index) => (
+      Array.from({ length: 7 }).map((_, index) => (
         <div className="snap-start snap-always h-max w-full flex flex-col gap-3 items-center" key={index}>
           <div className="object-cover w-60 h-72 rounded-md bg-third animate-pulse"></div>
           <div className="flex flex-col gap-2 items-center w-5/6">
@@ -23,8 +22,7 @@ const LoadingCard = () => {
             <p className=" w-1/3 h-5 bg-third animate-pulse rounded-lg"></p>
           </div>
         </div>
-      ))}
-    </>
+      ))
   );
 };
 
@@ -58,5 +56,20 @@ const AnimeLoading = () => {
   </div>
   );
 };
+const EpisodeLoading = () => {
+  return (
+    <div className="flex flex-col md:flex-row gap-5 mb-10">
+    <div className="flex flex-col gap-5 md:w-2/3">
+      <div className="flex flex-col md:flex-row gap-5 justify-between">
+        <div className="header md:w-2/3 bg-third rounded-md px-4 py-2 h-7 animate-pulse"></div>
+        <div className="header w-full md:w-1/4 bg-third rounded-md px-4 py-2 h-10 animate-pulse"></div>
+      </div>
+      <div className="episode-frame bg-third animate-pulse"></div>
+    </div>
+  </div>
+  );
+};
 
-export {LoadingCardSmall, LoadingCard, LoadingPage, AnimeLoading};
+
+
+export {LoadingCardSmall, LoadingCard, LoadingPage, AnimeLoading, EpisodeLoading};

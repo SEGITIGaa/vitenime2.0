@@ -1,4 +1,4 @@
-import { Home, Route, Router, Routes, useEffect, useState, Ongoing, Suspense, LoadingPage, Anime, AnimeByGenre, Episode } from "./export";
+import { Home, Route, Router, Routes, useEffect, useState, Ongoing, Suspense, LoadingPage, Anime, AnimeByGenre, Episode, GenresPage } from "./export";
 import "./App.css";
 
 
@@ -45,6 +45,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home ongoingAnimes={ongoingAnimeList} genres={genres} AllAnimes={animeList} />} />
           <Route path="/ongoing" element={<Ongoing animeList={ongoingAnimeList} getOngoingAnime={getOngoingAnimes} />} />
+          <Route path="/genres" element={<GenresPage genres={genres} />} />
           <Route path="/anime/:slug" element={<Anime />} />
           <Route path="/anime/genre/:slug" element={<AnimeByGenre />} />
           <Route path="/anime/:name/:slug" element={<Episode />} />

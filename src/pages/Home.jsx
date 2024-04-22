@@ -9,10 +9,9 @@ import {
   useEffect,
   LoadingCardSmall,
   InfiniteScroll,
-  Recomendations,
 } from "../export";
 
-const Home = ({ ongoingAnimes, genres, AllAnimes }) => {
+const Home = ({ ongoingAnimes, genres }) => {
   const [completedAnimes, setCompletedAnimes] = useState([]);
   const [request, setRequest] = useState("type=complete");
   const [hasMore, setHasMore] = useState(true);
@@ -61,27 +60,18 @@ const Home = ({ ongoingAnimes, genres, AllAnimes }) => {
   return (
     <Layout>
       <Navbar ongoingAnimes={completedAnimes} setRequest={setRequest} getAnimes={getCompletedAnimes}/>
-      {/* <Recomendations AllAnimes={AllAnimes}/> */}
       <OngoingAnimes ongoingAnimes={ongoingAnimes} />
 
       <Genres genres={genres} />
 
-      <section className="flex flex-col items-start gap-5">
-        <h1 className="header">Completed</h1>
+      <section className="col-start gap-5 pt-5">
+        <h1 className="header text-second/70">Completed</h1>
 
-        <InfiniteScroll
-          dataLength={filteredCompletedAnimes.length}
-          hasMore={hasMore}
-          next={getCompletedAnimes}
-          loader={<LoadingCardSmall />}
-          className="grid grid-cols-2 justify-start items-start gap-5 md:grid-cols-5"
-        >
+        <InfiniteScroll dataLength={filteredCompletedAnimes.length} hasMore={hasMore} next={getCompletedAnimes} loader={<LoadingCardSmall />} className="infinity-scroll">
           {completedAnimes.map((anime, index) => (
             <SmallCard anime={anime} key={index} />
           ))}
-
         </InfiniteScroll>
-
       </section>
     </Layout>
   );
