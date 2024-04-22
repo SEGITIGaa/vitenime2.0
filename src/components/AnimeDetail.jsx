@@ -1,7 +1,6 @@
 import React from "react";
 
 const AnimeDetail = ({ anime }) => {
-    
   const studio = anime ? anime.studio.split(": ")[1] : "";
   const rilis = anime ? anime.rilis.split(": ")[1] : "";
   const status = anime ? anime.status.split(": ")[1] : "";
@@ -11,7 +10,6 @@ const AnimeDetail = ({ anime }) => {
 
   return (
     <div className="flex flex-col md:flex-row items-center gap-5 md:gap-10 bg-frame bg-contain bg-top md:bg-left bg-no-repeat">
-
       <img src={anime.gambar} alt={anime.judul} className="anime-img" />
 
       <div className="flex flex-col gap-10 w-full md:w-2/3">
@@ -26,17 +24,18 @@ const AnimeDetail = ({ anime }) => {
             <div className="anime-studio">By {studio} studio</div>
           </div>
 
-          <h1 className="anime-title font-fira">{anime.judul}</h1>
+          <h1 className="anime-title">{anime.judul}</h1>
 
           <p className="anime-info">
-            {rilis} | {status} | {durasi}/eps
+            {rilis} <span className="text-second font-clash font-semibold">|</span> {status} 
+            <span className="text-second font-clash font-semibold"> |</span> {durasi}/eps
           </p>
         </div>
 
         <p className="anime-genre">{genre}</p>
       </div>
 
-      <div className="h-1 w-full bg-second/20 rounded-full my-5"></div>
+      <div className="h-1 w-full bg-second/20 rounded-full my-5 md:hidden"></div>
     </div>
   );
 };

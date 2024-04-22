@@ -13,6 +13,7 @@ module.exports = {
       },
       fontFamily: {
         fira: "FiraSans",
+        clash : "ClashDisplay",
         satoshi: "Satoshi",
       },
       backgroundImage: {

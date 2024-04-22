@@ -45,7 +45,7 @@ const Ongoing = ({}) => {
     <Layout>
       <Navbar ongoingAnimes={ongoing} setRequest={setRequest} getAnimes={getOngoingAnime}/>
       <BackBtn />
-      <h1 className="h1 mt-5">Ongoing</h1>
+      <h1 className="header mt-5">Ongoing</h1>
       <InfiniteScroll
         dataLength={ongoing.length}
         hasMore={hasMore}

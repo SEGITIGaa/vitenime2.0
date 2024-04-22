@@ -70,7 +70,7 @@ const Episode = () => {
 
         {/* EPISODE */}
         <div className="flex flex-col gap-3">
-          <h1 className="h1 text-lg">Episodes</h1>
+          <h1 className="header">Episodes</h1>
           <EpisodesOnEpisode anime={anime} slug={slug} name={name} />
         </div>
       </div>

@@ -67,14 +67,14 @@ const Home = ({ ongoingAnimes, genres, AllAnimes }) => {
       <Genres genres={genres} />
 
       <section className="flex flex-col items-start gap-5">
-        <h1 className="h1">Completed</h1>
+        <h1 className="header">Completed</h1>
 
         <InfiniteScroll
           dataLength={filteredCompletedAnimes.length}
           hasMore={hasMore}
           next={getCompletedAnimes}
           loader={<LoadingCardSmall />}
-          className="grid grid-cols-2 justify-start items-start gap-5 md:grid-cols-4"
+          className="grid grid-cols-2 justify-start items-start gap-5 md:grid-cols-5"
         >
           {completedAnimes.map((anime, index) => (
             <SmallCard anime={anime} key={index} />

@@ -1,7 +1,6 @@
 const LoadingCardSmall = () => {
   return (
-    <>
-      {Array.from({ length: 9 }).map((_, index) => (
+      Array.from({ length: 9 }).map((_, index) => (
         <div className="snap-start snap-always h-max w-full flex flex-col gap-3 items-center" key={index}>
           <div className="object-cover h-60 w-40 md:w-60 md:h-72 rounded-md bg-third animate-pulse"></div>
           <div className="flex flex-col gap-2 items-center w-5/6">
@@ -9,8 +8,7 @@ const LoadingCardSmall = () => {
             <p className=" w-1/3 h-5 bg-third animate-pulse rounded-lg"></p>
           </div>
         </div>
-      ))}
-    </>
+      ))
   );
 };
 

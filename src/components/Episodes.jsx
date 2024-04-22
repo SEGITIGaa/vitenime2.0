@@ -2,8 +2,8 @@ import { Link } from "../export";
 
 const Episodes = ({ episodes, slug }) => {
   return (
-    <div className="">
-      <h1 className="h1 mb-5 text-xl font-fira">Episodes</h1>
+    <div className="flex flex-col gap-5">
+      <h1 className="header">Episodes</h1>
       <div className="flex flex-col gap-5 max-h-96 overflow-y-scroll">
         <div className="grid grid-cols-6 md:grid-cols-4 gap-4 md:w-2/3">
           {episodes.map((episode, index) => (
