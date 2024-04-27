@@ -2,7 +2,7 @@ const LoadingCardSmall = () => {
   return (
       Array.from({ length: 9 }).map((_, index) => (
         <div className="snap-start snap-always h-max w-full flex flex-col gap-3 items-center" key={index}>
-          <div className="object-cover h-60 w-40 md:w-60 md:h-72 rounded-md bg-third animate-pulse"></div>
+          <div className="object-cover h-60 w-40 md:w-52 md:h-72 rounded-md bg-third animate-pulse"></div>
           <div className="flex flex-col gap-2 items-center w-5/6">
             <p className="w-full h-5 bg-third animate-pulse rounded-lg"></p>
             <p className=" w-1/3 h-5 bg-third animate-pulse rounded-lg"></p>
@@ -37,7 +37,7 @@ const LoadingPage = () => {
 const AnimeLoading = () => {
   return (
     <div className="flex flex-col md:flex-row items-center gap-3 md:gap-10 bg-frame bg-contain bg-top md:bg-left bg-no-repeat">
-    <div className="w-1/3 md:w-1/5 h-40 md:h-72 rounded-md mb-2 bg-third animate-pulse"></div>
+    <div className="w-1/2 md:w-1/5 h-56 md:h-80 rounded-lg mb-2 bg-third animate-pulse"></div>
 
     <div className="flex flex-col gap-10 w-full md:w-2/3">
       <div className="flex flex-col gap-5">

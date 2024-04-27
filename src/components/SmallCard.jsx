@@ -9,6 +9,7 @@ const SmallCard = ({anime}) => {
     <img
       src={anime.gambar}
       alt={anime.judul}
+      loading='lazy'
       className="object-cover h-64 md:h-72 rounded-md"
     />
       <p className="text-second font-semibold break-words w-5/6 truncate font-clash text-sm md:text-lg">

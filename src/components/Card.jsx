@@ -9,13 +9,14 @@ const Card = ({ anime }) => {
       <img
         src={anime.gambar}
         alt={anime.judul}
+        loading='lazy'
         className="object-cover h-80 rounded-lg"
       />
       <div className="col gap-2 w-56">
         <p className="text-second font-clash font-semibold break-words w-52 truncate text-lg">
           {anime.judul}
         </p>
-        <p className="text-second break-words absolute font-fira font-semibold top-2 left-2 text-xs bg-third rounded-xl px-4 w-max py-1.5">
+        <p className="text-second break-words absolute font-fira font-semibold top-2 left-2 text-xs bg-third/80 rounded-xl px-4 w-max py-1.5">
           eps {anime.eps}
         </p>
       </div>

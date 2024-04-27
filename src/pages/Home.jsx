@@ -65,7 +65,7 @@ const Home = ({ ongoingAnimes, genres }) => {
       <Genres genres={genres} />
 
       <section className="col-start gap-5 pt-5">
-        <h1 className="header text-second/70">Completed</h1>
+        <h1 className="header">Completed</h1>
 
         <InfiniteScroll dataLength={filteredCompletedAnimes.length} hasMore={hasMore} next={getCompletedAnimes} loader={<LoadingCardSmall />} className="infinity-scroll">
           {completedAnimes.map((anime, index) => (

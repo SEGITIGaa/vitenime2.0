@@ -51,7 +51,7 @@ const Ongoing = ({}) => {
         hasMore={hasMore}
         next={getOngoingAnime}
         loader={<LoadingCardSmall />}
-        className="grid grid-cols-2 justify-start items-start gap-5 gap-y-5 md:grid-cols-4"
+        className="grid grid-cols-2 justify-start items-start gap-5 gap-y-5 md:grid-cols-5"
       >
         {ongoing.map((anime, index) => (
           <SmallCard anime={anime} key={index} />
