@@ -1,15 +1,4 @@
-import {
-  Layout,
-  useMemo,
-  Navbar,
-  OngoingAnimes,
-  Genres,
-  SmallCard,
-  useState,
-  useEffect,
-  LoadingCardSmall,
-  InfiniteScroll,
-} from "../export";
+import { Layout, useMemo, Navbar, OngoingAnimes, Genres, SmallCard, useState, useEffect, LoadingCardSmall, InfiniteScroll} from "../export";
 
 const Home = ({ ongoingAnimes, genres }) => {
   const [completedAnimes, setCompletedAnimes] = useState([]);

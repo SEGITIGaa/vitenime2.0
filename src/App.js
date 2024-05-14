@@ -1,6 +1,7 @@
-import { Home, Route, Router, Routes, useEffect, useState, Ongoing, Suspense, LoadingPage, Anime, AnimeByGenre, Episode, GenresPage } from "./export";
-import "./App.css";
+import { Route, Router, Routes, useEffect, useState, React, Ongoing, Suspense, LoadingPage, Anime, AnimeByGenre, Episode, GenresPage } from "./export";
 
+
+const Home = React.lazy(() => import('./pages/Home'))
 
 function App() {
   const [ongoingAnimeList, setOngoingAnimeList] = useState([]);
@@ -30,7 +31,6 @@ function App() {
     const data = await response.json();
     setAnimeList(data);
   };
-
 
   // GENRE ANIME
   const getGenres = async() => {

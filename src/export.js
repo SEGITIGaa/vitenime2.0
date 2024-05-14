@@ -1,3 +1,4 @@
+import "./App.css";
 import React, { useState, useEffect, Suspense, lazy, useMemo } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useParams, useLocation, useNavigate } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -36,6 +37,7 @@ import GenresPage from "./pages/Genres";
 
 
 export {
+  React,
   GenresPage,
   EpisodeLoading,
   AnimeLoading,
