@@ -1,19 +1,23 @@
-import{ useState} from '../export'
+import { useFetchAnimesByPage } from '../Functions/Fetch'
+import{ useState } from '../export'
 
-const Navbar = ({ongoingAnimes, getAnimes, setRequest}) => {
+const Navbar = ({getAnimes, setRequest}) => {
+    const {animes} = useFetchAnimesByPage()
     const [onFocus, setFocus] = useState('')
 
     const HandleFocus = () => {
       const Num = Math.floor(Math.random() * 24 ) + 1
-      setFocus(ongoingAnimes[Num].judul)
+      setFocus(animes[Num].judul)
+    }
+
+    const Submited = (e) => {
+      e.preventDefault()
+      const value = e.target.querySelector("input").value
+      setRequest(`search=${value}`)
+      getAnimes(true, `search=${value}`)
     }
     return (
-      <form className="navbar" onSubmit={(e) => {
-        e.preventDefault()
-        const value = e.target.querySelector("input").value
-        setRequest(`search=${value}`)
-        getAnimes(true, `search=${value}`)
-      }}>
+      <form className="navbar" onSubmit={Submited}>
 
   
       <input type="search" name="" id="" onFocus={HandleFocus} onBlur={() => setFocus("")} placeholder={onFocus !== "" ? `coba tonton "${onFocus}"` : "mau nonton apa nihh.."} className="input-search" />

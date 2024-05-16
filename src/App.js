@@ -1,50 +1,19 @@
-import { Route, Router, Routes, useEffect, useState, React, Ongoing, Suspense, LoadingPage, Anime, AnimeByGenre, Episode, GenresPage } from "./export";
+import { useFetchAnime } from "./Functions/Fetch";
+import { Route, Router, Routes, lazy, Ongoing, Suspense, LoadingPage, Anime, AnimeByGenre, Episode, GenresPage } from "./export";
 
 
-const Home = React.lazy(() => import('./pages/Home'))
+const Home = lazy(() => import('./pages/Home'))
 
 function App() {
-  const [ongoingAnimeList, setOngoingAnimeList] = useState([]);
-  const [animeList, setAnimeList] = useState([]);
-  const [genres, setGenres] = useState([]);
-  
-  useEffect(() => {
-    getOngoingAnimes();
-    getAllAnimes()
-    getGenres()
-  }, []);
-  
-  // ONGOING ANIME
-  const getOngoingAnimes = async () => {
-    const response = await fetch(
-      "https://web-anime-psi.vercel.app/anime?type=ongoing"
-    );
-    const data = await response.json();
-    setOngoingAnimeList(data);
-  };
-
-  // ONGOING ANIME
-  const getAllAnimes = async () => {
-    const response = await fetch(
-      "https://web-anime-psi.vercel.app/anime"
-    );
-    const data = await response.json();
-    setAnimeList(data);
-  };
-
-  // GENRE ANIME
-  const getGenres = async() => {
-    const response = await fetch("https://web-anime-psi.vercel.app/genre")
-    const data = await response.json();
-    setGenres(data)
-  }
+  const genres = useFetchAnime('genre');
+  const ongoingAnimeList = useFetchAnime('anime?type=ongoing');
 
   return (
     <Router>
       <Suspense fallback={<LoadingPage/>}>
         <Routes>
-          <Route path="/" element={<Home ongoingAnimes={ongoingAnimeList} genres={genres} AllAnimes={animeList} />} />
-          <Route path="/ongoing" element={<Ongoing animeList={ongoingAnimeList} getOngoingAnime={getOngoingAnimes} />} />
+          <Route path="/" element={<Home ongoingAnimes={ongoingAnimeList} genres={genres}/>} />
+          <Route path="/ongoing" element={<Ongoing animeList={ongoingAnimeList}/>} />
           <Route path="/genres" element={<GenresPage genres={genres} />} />
           <Route path="/anime/:slug" element={<Anime />} />
           <Route path="/anime/genre/:slug" element={<AnimeByGenre />} />

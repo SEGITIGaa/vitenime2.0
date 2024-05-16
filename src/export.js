@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState, useEffect, Suspense, lazy, useMemo } from "react";
+import React, { useState, useEffect, Suspense, lazy, useMemo, useRef } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useParams, useLocation, useNavigate } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -20,7 +20,6 @@ import {
 import BackBtn from "./components/BackBtn";
 import AnimeDetail from "./components/AnimeDetail";
 import StreamServices from "./components/StreamServices";
-import Recomendations from "./components/Recomendations";
 
 import Card from "./components/Card";
 import Navbar from "./components/Navbar";
@@ -37,11 +36,11 @@ import GenresPage from "./pages/Genres";
 
 
 export {
+  useRef,
   React,
   GenresPage,
   EpisodeLoading,
   AnimeLoading,
-  Recomendations,
   EpisodesOnEpisode,
   StreamServices,
   AnimeDetail,

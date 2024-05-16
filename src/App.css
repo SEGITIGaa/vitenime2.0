@@ -24,21 +24,20 @@
 }
 
 @layer components {
-  
-  .col-to-row{
-    @apply col md:row
+  .col-to-row {
+    @apply col md:row;
   }
-  .row{
-    @apply flex flex-row
+  .row {
+    @apply flex flex-row;
   }
-  .col{
-    @apply flex flex-col
+  .col {
+    @apply flex flex-col;
   }
-  .col-start{
-    @apply flex flex-col items-start
+  .col-start {
+    @apply flex flex-col items-start;
   }
   .infinity-scroll {
-    @apply grid grid-cols-2 justify-start items-start gap-5 md:grid-cols-5;
+    @apply grid grid-cols-2 justify-start items-start gap-5 gap-y-5 sm:grid-cols-4 md:grid-cols-5;
   }
 
   .genre {
@@ -86,10 +85,10 @@
     @apply text-second/70 font-semibold text-xs md:text-sm;
   }
   .anime-genre {
-    @apply text-second text-xs md:text-sm font-semibold w-2/3 ;
+    @apply text-second text-xs md:text-sm font-semibold w-2/3;
   }
   .bg-blured {
-    @apply backdrop-blur-sm h-full w-full flex items-center justify-center ;
+    @apply backdrop-blur-sm h-full w-full flex items-center justify-center;
   }
   .anime-container {
     @apply bg-main rounded-t-3xl md:py-10 md:rounded-t-none overflow-y-scroll h-1/2 gap-10 flex md:relative p-5 md:p-0 bottom-0 fixed right-0 left-0 flex-col;
