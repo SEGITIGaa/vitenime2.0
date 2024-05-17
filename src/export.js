@@ -16,10 +16,12 @@ import {
   Episodes,
   EpisodesOnEpisode,
 } from "./components/Episodes";
-
 import BackBtn from "./components/BackBtn";
 import AnimeDetail from "./components/AnimeDetail";
 import StreamServices from "./components/StreamServices";
+import DownloadLinks from "./components/DownloadLinks";
+import EpisodeDropdown from "./components/EpisodeDropdown";
+import StreamPanel from "./components/StreamPanel";
 
 import Card from "./components/Card";
 import Navbar from "./components/Navbar";
@@ -36,6 +38,9 @@ import GenresPage from "./pages/Genres";
 
 
 export {
+  DownloadLinks, 
+  EpisodeDropdown,
+  StreamPanel,
   useRef,
   React,
   GenresPage,

@@ -2,16 +2,8 @@ import { Link } from "../export";
 
 const Card = ({ anime }) => {
   return (
-    <Link
-      to={`/anime/${anime.slug}`}
-      className="snap-start snap-always h-96 col gap-3 cursor-pointer relative"
-    >
-      <img
-        src={anime.gambar}
-        alt={anime.judul}
-        loading='lazy'
-        className="object-cover h-80 rounded-lg"
-      />
+    <Link to={`/anime/${anime.slug}`} className="snap-start snap-always h-96 col gap-3 cursor-pointer relative">
+      <img src={anime.gambar} alt={anime.judul} loading='lazy' className="object-cover h-80 rounded-lg"/>
       <div className="col gap-2 w-56">
         <p className="text-second font-clash font-semibold break-words w-52 truncate text-lg">
           {anime.judul}

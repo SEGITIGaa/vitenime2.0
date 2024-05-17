@@ -1,25 +1,10 @@
-import { useState, useEffect, useParams, Layout, BackBtn, Episodes, AnimeDetail, AnimeLoading,
-} from "../export";
+import { useFetchAnimeDetail } from "../Functions/Fetch";
+import { useParams, Layout, BackBtn, Episodes, AnimeDetail, AnimeLoading } from "../export";
 
 const Anime = () => {
   const { slug } = useParams();
-  const [anime, setAnime] = useState(null);
-
-  useEffect(() => {
-    const getAnime = async () => {
-      try {
-        const res = await fetch(
-          `https://web-anime-psi.vercel.app/anime/${slug}`
-        );
-        const data = await res.json();
-        setAnime(data);
-      } catch (error) {
-        alert("Ops, ada yg salah, ", error);
-      }
-    };
-
-    getAnime();
-  }, [slug]);
+  const anime = useFetchAnimeDetail(slug);
+  console.log(anime);
 
   return (
     <Layout>

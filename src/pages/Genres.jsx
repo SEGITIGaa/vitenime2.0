@@ -1,14 +1,5 @@
-import { BackBtn, Layout, Link, useEffect, useState } from "../export";
-const GenresPage = () => {
-  const [genres, setGenres] = useState([]);
-  const getGenres = async () => {
-    const response = await fetch("https://web-anime-psi.vercel.app/genre");
-    const data = await response.json();
-    setGenres(data);
-  };
-  useEffect(() => {
-    getGenres();
-  }, []);
+import { BackBtn, Layout, Link} from "../export";
+const GenresPage = ({genres}) => {
   return (
     <Layout>
       <BackBtn />

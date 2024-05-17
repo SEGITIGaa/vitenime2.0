@@ -1,12 +1,8 @@
-import React from "react";
+import { useAnimeDetail } from "../Functions/Fetch";
 
 const AnimeDetail = ({ anime }) => {
-  const studio = anime ? anime.studio.split(": ")[1] : "";
-  const rilis = anime ? anime.rilis.split(": ")[1] : "";
-  const status = anime ? anime.status.split(": ")[1] : "";
-  const skor = anime ? anime.skor.split(": ")[1] : "";
-  const genre = anime ? anime.genre.split(": ")[1] : "";
-  const durasi = anime ? anime.durasi.split(": ")[1] : "";
+  const { studio, rilis, status, skor, genre, durasi } = useAnimeDetail(anime);
+  
 
   return (
     <div className="flex flex-col md:flex-row items-center gap-5 md:gap-10 bg-frame bg-contain bg-top md:bg-left bg-no-repeat">

@@ -56,6 +56,7 @@ const AnimeLoading = () => {
   </div>
   );
 };
+
 const EpisodeLoading = () => {
   return (
     <div className="flex flex-col md:flex-row gap-5 mb-10">

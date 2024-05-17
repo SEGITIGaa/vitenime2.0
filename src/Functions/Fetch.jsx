@@ -16,6 +16,22 @@ export function useFetchAnime(query) {
   return animeData;
 }
 
+export function useFetchAnimeDetail(query) {
+  const [animeData, setAnimeData] = useState(null);
+
+  useEffect(() => {
+    const getAnime = async () => {
+      const response = await fetch(`https://web-anime-psi.vercel.app/anime/${query}`);
+      const data = await response.json();
+      setAnimeData(data);
+    };
+
+    getAnime()
+  }, [query]);
+
+  return animeData;
+}
+
 export function useFetchAnimesByPage(req) {
     const [request, setRequest] = useState(req);
     const [animes, setAnimes] = useState([]);
@@ -64,4 +80,69 @@ export function useFetchAnimesByPage(req) {
     }, [animes]);
 
     return {filteredAnime, animes, hasMore, getAnime, setRequest }
+}
+
+export function useFetchEpisode(slug, name) {
+  const [eps, setEps] = useState(null);
+  const [Iframe, setIframe] = useState(null);
+  const [nonce, setNonce] = useState(null);
+  const [anime, setAnime] = useState([]);
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => {
+    setShow(!show);
+  };
+
+  const download = [
+    "d360pmp4",
+    "d480pmp4",
+    "d720pmp4",
+    "d1080pmp4",
+    "d480pmkv",
+    "d720pmkv",
+    "d1080pmkv",
+  ];
+
+
+  const getEpisodeData = async () => {
+    try {
+      const [episodeResponse, animeResponse, nonceResponse] = await Promise.all([
+        fetch(`https://web-anime-psi.vercel.app/episode/${slug}`),
+        fetch(`https://web-anime-psi.vercel.app/anime/${name}`),
+        fetch("https://web-anime-psi.vercel.app/nonce"),
+      ]);
+
+      if (!episodeResponse.ok || !animeResponse.ok || !nonceResponse.ok) {
+        throw new Error("Failed to fetch data");
+      }
+
+      const [episodeData, animeData, nonceData] = await Promise.all([
+        episodeResponse.json(),
+        animeResponse.json(),
+        nonceResponse.json(),
+      ]);
+
+      setEps(episodeData);
+      setIframe(episodeData.iframe);
+      setAnime(animeData.episodes);
+      setNonce(nonceData);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    getEpisodeData();
+  }, [slug, name]);
+
+  return {eps, Iframe, nonce, anime, handleShow, download, setIframe, show}
+}
+
+export function useAnimeDetail(anime) {
+  const animeDetails = ['studio', 'rilis', 'status', 'skor', 'genre', 'durasi'].reduce((details, key) => {
+    details[key] = anime?.[key]?.split(": ")[1] || "";
+    return details;
+  }, {});
+
+  return animeDetails
 }
