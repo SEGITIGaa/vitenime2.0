@@ -50,7 +50,7 @@
     @apply w-full flex items-center gap-4 py-4 pt-10;
   }
   .header {
-    @apply text-second font-clash font-semibold text-xl;
+    @apply text-second font-clash font-semibold text-2xl;
   }
   .arrow-btn {
     @apply text-second font-semibold text-sm flex items-center gap-3 cursor-pointer rounded-full transition-all duration-300;
@@ -70,22 +70,25 @@
     @apply w-1/2 object-cover md:w-1/5 rounded-lg shadow-md;
   }
   .star {
-    @apply md:w-4 md:h-4 w-3 h-3;
+    @apply w-4 h-4;
   }
   .anime-rating {
-    @apply bg-second rounded-full flex items-center gap-2 justify-center px-5 py-1 text-xs md:text-sm font-semibold text-third;
+    @apply bg-second rounded-full font-satoshi flex items-center gap-2 justify-center px-5 py-1 text-xs md:text-lg font-semibold text-third;
   }
   .anime-studio {
-    @apply bg-third rounded-full text-center px-5 py-1 text-xs md:text-sm font-semibold text-second;
+    @apply bg-third rounded-full text-center font-satoshi px-5 py-1 text-xs md:text-lg font-semibold text-second;
   }
   .anime-title {
     @apply text-xl md:text-5xl text-second font-semibold font-clash;
   }
   .anime-info {
-    @apply text-second/70 font-semibold text-xs md:text-sm;
+    @apply text-xs md:text-xl font-semibold text-second/70;
+  }
+  .anime-icons {
+    @apply w-5 h-5 md:w-6 md:h-6 opacity-70;
   }
   .anime-genre {
-    @apply text-second text-xs md:text-sm font-semibold w-2/3;
+    @apply text-second/70 text-xs md:text-xl font-semibold w-2/3;
   }
   .bg-blured {
     @apply backdrop-blur-sm h-full w-full flex items-center justify-center;

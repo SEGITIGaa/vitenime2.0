@@ -6,7 +6,7 @@ const Genres = ({ genres }) => {
       <div className="w-full items-center justify-between flex">
         <h1 className="header">Genre</h1>
         <Link to="/genres" className="arrow-btn">
-          <p className="text-second/70">lengkapnya</p>
+          <p className="text-second/70 text-xs">lengkapnya</p>
           <img src={"/arrow.svg"} alt="" height={18} width={18} />
         </Link>
       </div>

@@ -2,13 +2,19 @@ import { useAnimeDetail } from "../Functions/Fetch";
 
 const AnimeDetail = ({ anime }) => {
   const { studio, rilis, status, skor, genre, durasi } = useAnimeDetail(anime);
+
+  const info = [
+    {icons: "/date.svg", content: rilis},
+    {icons: "/ongoing.svg", content: status},
+    {icons: "/duration.svg", content: durasi},
+  ]
   
 
   return (
-    <div className="flex flex-col md:flex-row items-center gap-5 md:gap-10 bg-frame bg-contain bg-top md:bg-left bg-no-repeat">
+    <div className="col-to-row items-center gap-5 md:gap-10 bg-frame bg-contain bg-top md:bg-left bg-no-repeat">
       <img src={anime.gambar} alt={anime.judul} className="anime-img" />
 
-      <div className="flex flex-col gap-10 w-full md:w-2/3">
+      <div className="flex flex-col gap-10 w-full md:w-3/4">
         <div className="flex flex-col gap-5">
           <div className="flex items-center gap-2">
             {skor && (
@@ -21,11 +27,14 @@ const AnimeDetail = ({ anime }) => {
           </div>
 
           <h1 className="anime-title">{anime.judul}</h1>
-
-          <p className="anime-info">
-            {rilis} <span className="text-second font-clash font-semibold mx-2">|</span> {status} 
-            <span className="text-second font-clash font-semibold mx-2">|</span> {durasi}/eps
-          </p>
+          <div className="row gap-5">
+            {info.map((e, i) => (
+              <div className="row items-center gap-2" key={i}>
+                <img src={e.icons} alt="" className="anime-icons" />
+                <p className="anime-info">{e.content}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         <p className="anime-genre">{genre}</p>

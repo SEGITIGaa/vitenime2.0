@@ -15,7 +15,7 @@ const StreamServices = ({ episode, nonce, setIframe }) => {
   return (
     <select
       onChange={(e) => getIframe(e.target.value)}
-      className="md:w-1/4 text-sm font-semibold text-second bg-third rounded-md px-4 py-2 h-max outline-none"
+      className="md:w-1/4 text-xs font-semibold text-second bg-third rounded-md px-4 py-2 h-max outline-none"
     >
       {episode.mirror.m360p.map((dt, index) => (
         <option key={index} value={dt.content} className="opt">

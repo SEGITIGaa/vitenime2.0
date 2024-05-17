@@ -10,9 +10,9 @@ const Episodes = ({ episodes, slug }) => {
             <Link
               to={`/anime/${slug}/${episode.slug}`}
               key={index}
-              className="flex flex-col md:flex-row gap-3 shadow-md items-center justify-between px-4 py-2 rounded-lg border border-third bg-third transition-all duration-300 hover:animate-pulse"
+              className="col-to-row gap-3 shadow-md items-center justify-between px-4 py-2 rounded-lg border border-third bg-third transition-all duration-300 hover:animate-pulse"
             >
-              <p className="font-bold text-lg text-second">Eps</p>
+              <p className="font-bold text-xs md:text-xl text-second">Eps</p>
               <p className="text-2xl font-bold text-second font-fira">
                 {episodes.length - index}
               </p>
@@ -36,7 +36,7 @@ const EpisodesOnEpisode = ({ anime, slug, name, show }) => {
               e.slug === slug ? "bg-second text-third" : "text-second bg-third"
             }`}
           >
-            <p className="font-bold text-lg">Eps</p>
+            <p className="font-bold text-xs md:text-lg">Eps</p>
             <p className="text-2xl font-bold font-fira">
               {anime.length - index}
             </p>

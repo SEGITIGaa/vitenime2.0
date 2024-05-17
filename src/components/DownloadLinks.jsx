@@ -5,9 +5,9 @@ const DownloadLinks = ({download, eps}) => {
       (type, index) =>
         eps.download[type].length > 0 && (
           <div className="col gap-4 border p-4 rounded-xl border-third" key={index}>
-            <p className="text-second rounded-lg w-max font-semibold font-fira text-sm md:text-lg">
+            <p className="text-second rounded-lg w-max font-semibold header">
               {`${type.split("p")[0].replace("d", " ")}p `}
-              <span className="text-[10px]">
+              <span className="text-xs">
                 {type.includes("mp4") ? "MP4" : "MKV"}
               </span>
             </p>
