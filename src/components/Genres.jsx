@@ -2,14 +2,6 @@ import { Link } from "../export";
 
 const Genres = ({ genres }) => {
   return (
-    <>
-    {/* <div className="w-full items-center justify-between flex">
-      <h1 className="header">Genre</h1>
-      <Link to="/genres" className="arrow-btn">
-        <p className="text-second/70 text-xs">lengkapnya</p>
-        <img src={"/arrow.svg"} alt="" height={18} width={18} />
-      </Link>
-    </div> */}
     <div className="row items-center">
       <div className="carousel gap-4 px-0 w-11/12 relative">
         {genres.map((genre, index) => (
@@ -23,7 +15,6 @@ const Genres = ({ genres }) => {
         <img src={"/arrow.svg"} alt="" height={24} width={24} />
       </Link>
     </div>
-    </>
   );
 };
 
