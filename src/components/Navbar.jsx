@@ -8,6 +8,7 @@ const Navbar = ({getAnimes, setRequest}) => {
     const HandleFocus = () => {
       const Num = Math.floor(Math.random() * 24 ) + 1
       setFocus(animes[Num].judul)
+      console.log(Num);
     }
 
     const Submited = (e) => {

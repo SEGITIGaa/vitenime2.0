@@ -7,10 +7,13 @@ const Home = ({ ongoingAnimes, genres }) => {
   return (
     <Layout>
       <Navbar setRequest={setRequest} getAnimes={getAnime}/>
-      <OngoingAnimes ongoingAnimes={ongoingAnimes} />
-
+      {/* GENRE LIST */}
       <Genres genres={genres} />
 
+      {/* ONGOING LIST */}
+      <OngoingAnimes ongoingAnimes={ongoingAnimes} />
+
+      {/* COMPLETED LIST */}
       <section className="col-start gap-5 pt-5">
         <h1 className="header">Completed</h1>
 
@@ -20,6 +23,7 @@ const Home = ({ ongoingAnimes, genres }) => {
           ))}
         </InfiniteScroll>
       </section>
+      
     </Layout>
   );
 };
