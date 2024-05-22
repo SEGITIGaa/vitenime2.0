@@ -37,17 +37,17 @@
     @apply flex flex-col items-start;
   }
   .infinity-scroll {
-    @apply grid grid-cols-2 justify-start items-start gap-5 gap-y-5 sm:grid-cols-4 md:grid-cols-5;
+    @apply grid grid-cols-2 justify-start items-start gap-5 gap-y-5 sm:grid-cols-4 md:grid-cols-5 py-8;
   }
 
   .genre {
-    @apply w-max bg-third px-4 py-2 rounded-lg shadow-md hover:bg-second transition-all duration-300 hover:text-third text-second font-semibold text-sm min-w-36 text-center max-w-max snap-end snap-always;
+    @apply w-max bg-third px-4 py-2 rounded-lg shadow-md hover:bg-indigo-600 transition-all duration-300 text-second font-semibold text-sm min-w-36 text-center max-w-max snap-end snap-always;
   }
   .carousel {
-    @apply flex items-center overflow-x-auto snap-x snap-mandatory p-2 gap-4 scroll-p-4;
+    @apply flex items-center overflow-x-auto snap-x snap-mandatory p-2 gap-3 scroll-p-4;
   }
   .navbar {
-    @apply w-full flex items-center gap-4 py-4 pt-10;
+    @apply w-full flex items-center gap-6 py-4 pt-10;
   }
   .header {
     @apply text-second font-clash font-semibold text-2xl;
@@ -59,7 +59,7 @@
     @apply flex items-center overflow-auto snap-x snap-mandatory scroll-p-2 gap-5;
   }
   .input-search {
-    @apply w-5/6 md:w-4/6 bg-third shadow-md outline-none ring-2 ring-slate-600 rounded-lg px-4 h-10 placeholder:text-xs placeholder:font-semibold border-second focus:placeholder:text-second/50 transition-all duration-300;
+    @apply w-5/6 md:w-4/6 bg-third shadow-md outline-none ring-2 ring-slate-600 rounded-lg px-4 h-10 placeholder:text-xs placeholder:font-semibold border-second focus:placeholder:text-second/50 transition-all duration-300 text-second font-semibold focus:ring-indigo-700;
   }
 
   /* PAGE ANIME */

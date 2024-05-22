@@ -3,7 +3,7 @@ import { Link } from "../export";
 const Genres = ({ genres }) => {
   return (
     <div className="row items-center">
-      <div className="carousel gap-4 px-0 w-11/12 relative">
+      <div className="carousel gap-2 px-0 w-11/12 relative">
         {genres.map((genre, index) => (
           <Link to={`/anime/genre/${genre.slug}`} key={index} className="genre">
             {genre.judul}

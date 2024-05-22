@@ -79,7 +79,7 @@ export function useFetchAnimesByPage(req) {
       );
     }, [animes]);
 
-    return {filteredAnime, animes, hasMore, getAnime, setRequest }
+    return {filteredAnime, animes, hasMore, getAnime, setRequest, request }
 }
 
 export function useFetchEpisode(slug, name) {
