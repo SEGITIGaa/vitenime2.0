@@ -3,7 +3,7 @@ import { Layout, Navbar,  OngoingAnimes, SmallCard, LoadingCardSmall, InfiniteSc
 
 const Home = ({ ongoingAnimes, genres }) => {
   // const {filteredAnime, animes, hasMore, getAnime, setRequest, request} = useFetchAnimesByPage('type=complete')
-  const { animes, hasMore, getAnime, setRequest } = useFetchAnimesByPage('type=ongoing')
+  const { animes, hasMore, getAnime } = useFetchAnimesByPage('type=complete')
 
   return (
     <Layout>
