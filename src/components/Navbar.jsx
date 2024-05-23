@@ -29,7 +29,7 @@ const Navbar = ({genres}) => {
         </form>
         {genres ? <Genres genres={genres} /> : <BackBtn />}
 
-        {onFocus !== "" ? 
+        
         <div className="col gap-3 absolute z-50 top-24 bg-main w-full md:w-3/4 rounded-lg max-h-96 overflow-scroll">
           {request !== 'type=ongoing' ? filteredAnime.map((r, index) => (
             <Link to={`/anime/${r.slug}`} key={index} className='row gap-3 rounded-lg hover:bg-third/70 group p-2'>
@@ -41,7 +41,6 @@ const Navbar = ({genres}) => {
             </Link>
           )): ''}
         </div>
-      : ""}
       </div>
     )
 }
