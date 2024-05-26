@@ -43,7 +43,7 @@ const LoadingPage = () => {
 const AnimeLoading = () => {
   return (
     <div className="col-to-row items-center gap-3 md:gap-10 bg-frame bg-contain bg-top md:bg-left bg-no-repeat">
-      <div className="w-1/2 md:w-1/5 h-80 rounded-lg mb-2 bg-third animate-pulse"></div>
+      <div className="w-1/2 md:w-1/5 h-56 md:h-80 rounded-lg mb-2 bg-third animate-pulse"></div>
 
       <div className="flex flex-col gap-10 w-full md:w-2/3">
         <div className="flex flex-col gap-5">

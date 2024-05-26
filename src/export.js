@@ -22,6 +22,7 @@ import StreamServices from "./components/StreamServices";
 import DownloadLinks from "./components/DownloadLinks";
 import EpisodeDropdown from "./components/EpisodeDropdown";
 import StreamPanel from "./components/StreamPanel";
+import Recomendations from "./components/Recomendations";
 
 import Card from "./components/Card";
 import Navbar from "./components/Navbar";
@@ -38,6 +39,7 @@ import GenresPage from "./pages/Genres";
 
 
 export {
+  Recomendations,
   DownloadLinks, 
   EpisodeDropdown,
   StreamPanel,
