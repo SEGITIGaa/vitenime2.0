@@ -1,5 +1,5 @@
 import { useFetchAnimesByPage } from "../Functions/Fetch";
-import { useParams, Layout, Navbar, InfiniteScroll, SmallCard, BackBtn, LoadingCardSmall } from "../export";
+import { useParams, Layout, Navbar, InfiniteScroll, SmallCard, LoadingCardSmall } from "../export";
 
 const AnimeByGenre = () => {
   const slug = useParams().slug;
@@ -9,8 +9,7 @@ const AnimeByGenre = () => {
   return (
     <Layout>
       <Navbar ongoingAnimes={animes} setRequest={setRequest} getAnimes={getAnime}/>
-      <BackBtn />
-      <section className="flex flex-col items-start gap-5 pt-10">
+      <section className="flex flex-col items-start gap-8 pt-10">
         <h1 className="header">kumpulan anime {slug} buat kamu</h1>
         <InfiniteScroll dataLength={filteredAnime.length} hasMore={hasMore} next={getAnime} loader={<LoadingCardSmall />} className="infinity-scroll">
           {animes.map((anime, index) => (

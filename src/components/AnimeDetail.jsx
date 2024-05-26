@@ -40,7 +40,7 @@ const AnimeDetail = ({ anime }) => {
         <p className="anime-genre">{genre}</p>
       </div>
 
-      <div className="h-1 w-full bg-second/20 rounded-full my-5 md:hidden"></div>
+      {/* <div className="h-1 w-full bg-second/20 rounded-full my-5 md:hidden"></div> */}
     </div>
   );
 };

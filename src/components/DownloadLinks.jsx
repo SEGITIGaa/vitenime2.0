@@ -12,7 +12,7 @@ const DownloadLinks = ({download, eps}) => {
               </span>
             </p>
 
-            <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
+            <div className="grid grid-cols-3 md:grid-cols-5 gap-6">
               {eps.download[type].map((dt, index) => (
                 <a href={dt.href} key={index} className="flex items-center justify-between bg-third transition-all duration-300 w-full gap-3 rounded-lg md:py-3 p-2 md:px-4">
                   <p className="text-xs md:text-sm text-second font-semibold">
