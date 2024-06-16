@@ -19,11 +19,11 @@ const AnimeDetail = ({ anime }) => {
           <div className="flex items-center gap-2">
             {skor && (
               <div className="anime-rating">
-                {skor}
                 <img src="/skor.svg" alt="skor" className="star" />
+                {skor}
               </div>
             )}
-            <div className="anime-studio">By {studio} studio</div>
+            <div className="anime-studio">{studio}</div>
           </div>
 
           <h1 className="anime-title">{anime.judul}</h1>

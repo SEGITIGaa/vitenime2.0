@@ -18,9 +18,25 @@
 }
 
 @layer utilities {
-  *::-webkit-scrollbar {
+  /* body::-webkit-scrollbar {
+    @apply hidden;
+  } */
+  .carousel::-webkit-scrollbar {
     @apply hidden;
   }
+
+  .eps::-webkit-scrollbar,  body::-webkit-scrollbar{
+    @apply bg-third w-2;
+  }
+
+  .eps::-webkit-scrollbar-thumb,  body::-webkit-scrollbar-thumb{
+    @apply bg-indigo-500/70 rounded-full;
+  }
+
+  *{
+    scroll-behavior: smooth;
+  }
+
 }
 
 @layer components {
@@ -59,7 +75,7 @@
     @apply flex items-center overflow-auto snap-x snap-mandatory scroll-p-2 gap-5;
   }
   .input-search {
-    @apply w-5/6 md:w-4/6 bg-third shadow-md outline-none ring-2 ring-slate-600 rounded-lg px-4 h-10 placeholder:text-xs placeholder:font-semibold border-second focus:placeholder:text-second/50 transition-all duration-300 text-second font-semibold focus:ring-indigo-700;
+    @apply w-5/6 md:w-4/6 bg-third shadow-md outline-none ring-2 ring-slate-600 rounded-lg px-4 h-10 placeholder:text-xs placeholder:font-semibold border-second focus:placeholder:text-second/50 transition-all duration-300 text-second font-semibold focus:ring-indigo-500/70;
   }
 
   /* PAGE ANIME */

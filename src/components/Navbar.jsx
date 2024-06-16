@@ -14,7 +14,7 @@ const Navbar = ({genres}) => {
               <img src="/Search.svg" alt="" className='w-5 h-5'/>
             </button> 
             : 
-            <div className="font-semibold cursor-pointer text-indigo-900" onClick={Batal}> batal</div>
+            <div className="font-semibold cursor-pointer text-indigo-500/70" onClick={Batal}> batal</div>
           }
         </form>
         {genres ? <Genres genres={genres} /> : <BackBtn />}

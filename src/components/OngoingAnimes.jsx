@@ -1,6 +1,7 @@
-import { Card, Link, LoadingCard, Suspense } from "../export";
+import { Card, Link, LoadingCard, Suspense} from "../export";
 
 const OngoingAnimes = ({ ongoingAnimes }) => {
+
   return (
     <section className="col gap-8">
       <div className="w-full items-center justify-between flex">
@@ -11,7 +12,7 @@ const OngoingAnimes = ({ ongoingAnimes }) => {
         </Link>
       </div>
 
-      <div className="carousel">
+      <div className="carousel h-[486px] items-start">
         <Suspense fallback={<LoadingCard />}>
           {ongoingAnimes.map((anime, index) => (
             <Card anime={anime} key={index} />

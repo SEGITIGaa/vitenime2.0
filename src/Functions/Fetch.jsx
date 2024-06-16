@@ -43,7 +43,6 @@ export function useFetchAnimesByPage(req) {
     }, []);
   
     const getAnime = async (reset, query = request) => {
-        console.log(query);
       if (reset) {
         setPage(1);
         setAnimes([]);
