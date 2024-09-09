@@ -15,27 +15,12 @@ const AnimeDetail = ({ anime }) => {
   return (
     <>
       <Helmet>
-        <meta property="og:title" content={`anime network - ${anime.judul}` || "Halaman Default"} />
-        <meta
-          property="og:description"
-          content={genre || "Deskripsi Default"}
-        />
-        <meta property="og:image" content={anime.gambar || "default-image-url"} />
-        <meta
-          property="og:url"
-          content={`https://animenetwork.vercel.app${location}`}
-        />
-
-        <title>{anime.judul || "Anime Network"}</title>
-
-        <meta name="twitter:card" content={anime.gambar || "default-image-url"} />
-        <meta name="twitter:title" content={`anime network twtr card - ${anime.judul}`} />
-        <meta name="twitter:description" content="Deskripsi halaman A." />
-        <meta name="twitter:image" content={anime.gambar} />
-        <meta
-          name="twitter:url"
-          content={`https://animenetwork.vercel.app${location}`}
-        />
+        <title>{`anime network - ${anime.judul}`}</title>
+        <meta name="description" content="This is the home page of my website" />
+        <meta property="og:title" content={`anime network - ${anime.judul}`} />
+        <meta property="og:description" content="This is the home page of my website" />
+        <meta property="og:image" content={anime.gambar}/>
+        <meta property="og:url" content={`https://animenetwork.vercel.app${location}`} />
       </Helmet>
 
       <div className="col-to-row items-center gap-5 md:gap-10 bg-frame bg-contain bg-top md:bg-left bg-no-repeat">
