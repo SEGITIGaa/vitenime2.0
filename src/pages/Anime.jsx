@@ -1,10 +1,16 @@
 import { useFetchAnimeDetail } from "../Functions/Fetch";
-import { useParams, Layout, BackBtn, Episodes, AnimeDetail, AnimeLoading } from "../export";
+import {
+  useParams,
+  Layout,
+  BackBtn,
+  Episodes,
+  AnimeDetail,
+  AnimeLoading,
+} from "../export";
 
 const Anime = () => {
   const { slug } = useParams();
   const anime = useFetchAnimeDetail(slug);
-  console.log(anime);
 
   return (
     <Layout>
@@ -12,8 +18,8 @@ const Anime = () => {
 
       {anime ? (
         <>
-          <AnimeDetail anime={anime} /> {/* ANIME-INFO */}
-          <Episodes episodes={anime.episodes} slug={slug} /> {/* ANIME EPISODES */}
+          <AnimeDetail anime={anime} />
+          <Episodes episodes={anime.episodes} slug={slug} />
         </>
       ) : (
         <AnimeLoading />
