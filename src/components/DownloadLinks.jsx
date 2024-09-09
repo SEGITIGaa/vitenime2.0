@@ -4,7 +4,7 @@ const DownloadLinks = ({download, eps}) => {
     {download.map(
       (type, index) =>
         eps.download[type].length > 0 && (
-          <div className="col gap-4 border p-4 rounded-xl border-third" key={index}>
+          <div className="col gap-4w border p-4 rounded-xl border-third" key={index}>
             <p className="text-second rounded-lg w-max font-semibold header">
               {`${type.split("p")[0].replace("d", " ")}p `}
               <span className="text-xs">

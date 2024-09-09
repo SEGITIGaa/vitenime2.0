@@ -5,7 +5,7 @@ const Home = ({ ongoingAnimes, genres }) => {
   const { animes, hasMore, getAnime } = useFetchAnimesByPage('type=complete')
 
   return (
-    <Layout>
+    <Layout >
       <Navbar getAnimes={getAnime} genres={genres}/>
 
       {/* ONGOING LIST */}
