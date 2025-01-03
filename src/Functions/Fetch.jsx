@@ -5,7 +5,7 @@ export function useFetchAnime(query) {
 
   useEffect(() => {
     const getAnime = async () => {
-      const response = await fetch(`https://web-anime-psi.vercel.app/${query}`);
+      const response = await fetch(`http://test.infind.my.id/${query}`);
       const data = await response.json();
       setAnimeData(data);
     };
@@ -21,7 +21,7 @@ export function useFetchAnimeDetail(query) {
 
   useEffect(() => {
     const getAnime = async () => {
-      const response = await fetch(`https://web-anime-psi.vercel.app/anime/${query}`);
+      const response = await fetch(`http://test.infind.my.id/anime/${query}`);
       const data = await response.json();
       setAnimeData(data);
     };
@@ -49,7 +49,7 @@ export function useFetchAnimesByPage(req) {
       }
   
       const response = await fetch(
-        `https://web-anime-psi.vercel.app/anime?page=${reset ? 1 : page}&${query}`
+        `http://test.infind.my.id/anime?page=${reset ? 1 : page}&${query}`
       );
   
       const data = await response.json();
@@ -106,9 +106,9 @@ export function useFetchEpisode(slug, name) {
   const getEpisodeData = async () => {
     try {
       const [episodeResponse, animeResponse, nonceResponse] = await Promise.all([
-        fetch(`https://web-anime-psi.vercel.app/episode/${slug}`),
-        fetch(`https://web-anime-psi.vercel.app/anime/${name}`),
-        fetch("https://web-anime-psi.vercel.app/nonce"),
+        fetch(`http://test.infind.my.id/episode/${slug}`),
+        fetch(`http://test.infind.my.id/anime/${name}`),
+        fetch("http://test.infind.my.id/nonce"),
       ]);
 
       if (!episodeResponse.ok || !animeResponse.ok || !nonceResponse.ok) {
