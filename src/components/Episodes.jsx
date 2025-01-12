@@ -5,7 +5,7 @@ const Episodes = ({ episodes, slug }) => {
     <div className="flex flex-col gap-5">
       <h1 className="header text-second/70">Episodes</h1>
       <div className="flex flex-col gap-5 max-h-96 overflow-y-scroll eps px-2">
-        <div className="grid grid-cols-6 md:grid-cols-4 gap-4 md:w-2/3">
+        <div className="grid grid-cols-4 gap-4 md:w-2/3">
           {episodes.map((episode, index) => (
             <Link
               to={`/anime/${slug}/${episode.slug}`}
@@ -27,7 +27,7 @@ const Episodes = ({ episodes, slug }) => {
 const EpisodesOnEpisode = ({ anime, slug, name, show }) => {
   return (
     <div className="flex flex-col gap-5 max-h-96 overflow-y-scroll px-2 eps">
-      <div className={`grid-cols-6 md:grid-cols-2 gap-4 w-full transition-all duration-300 ${show ? 'grid' : 'md:grid hidden'}` }>
+      <div className={`grid-cols-4 md:grid-cols-2 gap-4 w-full transition-all duration-300 ${show ? 'grid' : 'md:grid hidden'}` }>
         {anime.map((e, index) => (
           <Link
             to={`/anime/${name}/${e.slug}`}
