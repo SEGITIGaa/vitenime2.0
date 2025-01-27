@@ -1,16 +1,25 @@
 import { useState, useEffect, useMemo } from "../export";
+import { baseUrl } from "../variables/Variables";
+
+const headers = {
+  "Content-Type": "application/json",
+  "Origin": "https://animenetwork.vercel.app",
+  "User-Agent": "Browser",
+};
 
 export function useFetchAnime(query) {
   const [animeData, setAnimeData] = useState([]);
 
   useEffect(() => {
     const getAnime = async () => {
-      const response = await fetch(`https://test.infind.my.id/${query}`);
+      const response = await fetch(`${baseUrl}${query}`, {
+        headers,
+      });
       const data = await response.json();
       setAnimeData(data);
     };
 
-    getAnime()
+    getAnime();
   }, [query]);
 
   return animeData;
@@ -21,64 +30,72 @@ export function useFetchAnimeDetail(query) {
 
   useEffect(() => {
     const getAnime = async () => {
-      const response = await fetch(`https://test.infind.my.id/anime/${query}`);
+      const response = await fetch(
+        `${baseUrl}anime/${query}`,
+        {
+          headers,
+        }
+      );
       const data = await response.json();
       setAnimeData(data);
     };
 
-    getAnime()
+    getAnime();
   }, [query]);
 
   return animeData;
 }
 
 export function useFetchAnimesByPage(req) {
-    const [request, setRequest] = useState(req);
-    const [animes, setAnimes] = useState([]);
-    const [hasMore, setHasMore] = useState(true);
-    const [page, setPage] = useState(1);
-  
-    useEffect(() => {
-      getAnime();
-    }, []);
-  
-    const getAnime = async (reset, query = request) => {
-      if (reset) {
-        setPage(1);
-        setAnimes([]);
-      }
-  
-      const response = await fetch(
-        `https://test.infind.my.id/anime?page=${reset ? 1 : page}&${query}`
-      );
-  
-      const data = await response.json();
-  
-      if (data.length > 0) {
-        setHasMore(true);
-        setAnimes((prevAnimes) => {
-          const newData = reset
-            ? data
-            : data.filter(
-                (anime) =>
-                  !prevAnimes.some((prevAnime) => prevAnime.slug === anime.slug)
-              );
-          return [...prevAnimes, ...newData];
-        });
-        setPage((prevPage) => (reset ? 2 : prevPage + 1));
-      } else {
-        setHasMore(false);
-      }
-    };
-  
-    const filteredAnime = useMemo(() => {
-      return animes.filter(
-        (anime, index, self) =>
-          self.findIndex((a) => a.slug === anime.slug) === index
-      );
-    }, [animes]);
+  const [request, setRequest] = useState(req);
+  const [animes, setAnimes] = useState([]);
+  const [hasMore, setHasMore] = useState(true);
+  const [page, setPage] = useState(1);
 
-    return {filteredAnime, animes, hasMore, getAnime, setRequest, request }
+  useEffect(() => {
+    getAnime();
+  }, []);
+
+  const getAnime = async (reset, query = request) => {
+    if (reset) {
+      setPage(1);
+      setAnimes([]);
+    }
+
+    const response = await fetch(
+      `${baseUrl}anime?page=${reset ? 1 : page}&${query}`,
+      {
+        headers,
+      }
+    );
+
+    const data = await response.json();
+
+    if (data.length > 0) {
+      setHasMore(true);
+      setAnimes((prevAnimes) => {
+        const newData = reset
+          ? data
+          : data.filter(
+              (anime) =>
+                !prevAnimes.some((prevAnime) => prevAnime.slug === anime.slug)
+            );
+        return [...prevAnimes, ...newData];
+      });
+      setPage((prevPage) => (reset ? 2 : prevPage + 1));
+    } else {
+      setHasMore(false);
+    }
+  };
+
+  const filteredAnime = useMemo(() => {
+    return animes.filter(
+      (anime, index, self) =>
+        self.findIndex((a) => a.slug === anime.slug) === index
+    );
+  }, [animes]);
+
+  return { filteredAnime, animes, hasMore, getAnime, setRequest, request };
 }
 
 export function useFetchEpisode(slug, name) {
@@ -102,13 +119,12 @@ export function useFetchEpisode(slug, name) {
     "d1080pmkv",
   ];
 
-
   const getEpisodeData = async () => {
     try {
       const [episodeResponse, animeResponse, nonceResponse] = await Promise.all([
-        fetch(`https://test.infind.my.id/episode/${slug}`),
-        fetch(`https://test.infind.my.id/anime/${name}`),
-        fetch("https://test.infind.my.id/nonce"),
+        fetch(`${baseUrl}episode/${slug}`, { headers }),
+        fetch(`${baseUrl}anime/${name}`, { headers }),
+        fetch(`${baseUrl}nonce`, { headers }),
       ]);
 
       if (!episodeResponse.ok || !animeResponse.ok || !nonceResponse.ok) {
@@ -134,14 +150,21 @@ export function useFetchEpisode(slug, name) {
     getEpisodeData();
   }, [slug, name]);
 
-  return {eps, Iframe, nonce, anime, handleShow, download, setIframe, show}
+  return { eps, Iframe, nonce, anime, handleShow, download, setIframe, show };
 }
 
 export function useAnimeDetail(anime) {
-  const animeDetails = ['studio', 'rilis', 'status', 'skor', 'genre', 'durasi'].reduce((details, key) => {
+  const animeDetails = [
+    "studio",
+    "rilis",
+    "status",
+    "skor",
+    "genre",
+    "durasi",
+  ].reduce((details, key) => {
     details[key] = anime?.[key]?.split(": ")[1] || "";
     return details;
   }, {});
 
-  return animeDetails
+  return animeDetails;
 }

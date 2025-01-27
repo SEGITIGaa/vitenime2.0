@@ -1,10 +1,15 @@
+import { useState } from "react";
+import { baseUrl } from "../variables/Variables";
 
 const StreamServices = ({ episode, nonce, setIframe }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selected, setSelected] = useState("Pilih Resolusi");
+
   async function getIframe(content) {
     const response = await fetch(
-      `https://web-anime-psi.vercel.app/getIframe?nonce=${nonce}&content=${content}`
+      `${baseUrl}getIframe?nonce=${nonce}&content=${content}`
     );
-    const data = await response.json()
+    const data = await response.json();
     const inframeSrc = new DOMParser()
       .parseFromString(data, "text/html")
       .querySelector("iframe")
@@ -12,27 +17,49 @@ const StreamServices = ({ episode, nonce, setIframe }) => {
     setIframe(inframeSrc);
   }
 
+  const handleSelect = (content, nama) => {
+    setSelected(nama);
+    setIsOpen(false);
+    getIframe(content);
+  };
+
   return (
-    <select
-      onChange={(e) => getIframe(e.target.value)}
-      className="md:w-1/4 text-xs font-semibold text-second bg-third rounded-md px-4 py-2 h-max outline-none"
-    >
-      {episode.mirror.m360p.map((dt, index) => (
-        <option key={index} value={dt.content} className="opt">
-          {dt.nama} 360P
-        </option>
-      ))}
-      {episode.mirror.m480p.map((dt, index) => (
-        <option key={index} value={dt.content} className="opt">
-          {dt.nama} 480p
-        </option>
-      ))}
-      {episode.mirror.m720p.map((dt, index) => (
-        <option key={index} value={dt.content} className="opt">
-          {dt.nama} 720p
-        </option>
-      ))}
-    </select>
+    <div className="relative inline-block w-full md:w-1/4 text-xs">
+      {/* Dropdown Button */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full bg-third text-second font-semibold rounded-md px-4 py-2 flex items-center justify-between outline-none"
+        aria-haspopup="true"
+        aria-expanded={isOpen}
+      >
+        {selected}
+        <span className={`transition-transform ${isOpen ? "rotate-180" : ""}`}>
+          ▼
+        </span>
+      </button>
+
+      {/* Dropdown Menu */}
+      {isOpen && (
+        <ul
+          className="absolute z-10 bg-third border border-second rounded-md mt-2 w-full max-h-40 overflow-y-auto shadow-lg"
+          role="menu"
+          aria-label="Stream Options"
+        >
+          {["m360p", "m480p", "m720p"].map((resolution) =>
+            episode.mirror[resolution]?.map((dt, index) => (
+              <li
+                key={`${resolution}-${index}`}
+                role="menuitem"
+                onClick={() => handleSelect(dt.content, `${dt.nama} ${resolution.replace("m", "")}`)}
+                className="px-4 py-2 hover:bg-second hover:text-white cursor-pointer"
+              >
+                {dt.nama} {resolution.replace("m", "").toUpperCase()}
+              </li>
+            ))
+          )}
+        </ul>
+      )}
+    </div>
   );
 };
 

@@ -30,7 +30,7 @@ const Layout = ({ children, title, description, img }) => {
         />
       </Helmet>
       <div className="flex items-center justify-center font-satoshi bg-main">
-        <div className="flex flex-col min-h-screen w-11/12 md:w-4/5 gap-8 pb-20 pt-7 md:py-8">
+        <div className="flex flex-col min-h-screen w-11/12 md:w-4/5 gap-8 pb-20 pt-5">
           {children}
         </div>
       </div>

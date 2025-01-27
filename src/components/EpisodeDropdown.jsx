@@ -5,7 +5,7 @@ const EpisodeDropdown = ({anime, slug, name, show, handleShow}) => {
   return (
     <div className="col gap-3 md:w-1/3">
     <div className="flex items-center justify-between">
-      <h1 className="header">Episodes</h1>
+      <h1 className="header text-lg text-second/70 font-satoshi">Episode lainnya</h1>
       <div onClick={handleShow} className="arrow-btn text-xs md:hidden">
         lengkapnya
         <img src={"/arrow.svg"} alt="" className={className}/>

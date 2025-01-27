@@ -1,21 +1,26 @@
 import { Link } from "../export";
 
 const Episodes = ({ episodes, slug }) => {
+  console.log(episodes);
+  const reversed_episode = [ ...episodes].reverse()
+
   return (
     <div className="flex flex-col gap-5">
       <h1 className="header text-second/70">Episodes</h1>
-      <div className="flex flex-col gap-5 max-h-96 overflow-y-scroll eps px-2">
-        <div className="grid grid-cols-4 gap-4 md:w-2/3">
-          {episodes.map((episode, index) => (
+      <div className="flex flex-col gap-5 max-h-96 overflow-y-scroll eps pr-2">
+        <div className="col gap-2 md:w-2/4">
+          {reversed_episode.map((episode, index) => (
             <Link
               to={`/anime/${slug}/${episode.slug}`}
               key={index}
-              className="col-to-row gap-3 shadow-md items-center justify-between px-4 py-2 rounded-lg border border-third bg-third transition-all duration-300 hover:animate-pulse"
+              className="flex gap-5 shadow-md items-center px-4 py-2 rounded-lg border border-third bg-third transition-all duration-300 hover:animate-pulse"
             >
-              <p className="font-bold text-xs md:text-xl text-second">Eps</p>
-              <p className="text-2xl font-bold text-second font-fira">
-                {episodes.length - index}
+              <p className="text-2xl font-fira text-second/50">
+                {index + 1}
               </p>
+              <h3 className="font-semibold text-sm md:text-lg text-second font-satoshi">
+                {episode.judul}
+              </h3>
             </Link>
           ))}
         </div>
@@ -27,7 +32,11 @@ const Episodes = ({ episodes, slug }) => {
 const EpisodesOnEpisode = ({ anime, slug, name, show }) => {
   return (
     <div className="flex flex-col gap-5 max-h-96 overflow-y-scroll px-2 eps">
-      <div className={`grid-cols-4 md:grid-cols-2 gap-4 w-full transition-all duration-300 ${show ? 'grid' : 'md:grid hidden'}` }>
+      <div
+        className={`grid-cols-4 md:grid-cols-2 gap-4 w-full transition-all duration-300 ${
+          show ? "grid" : "md:grid hidden"
+        }`}
+      >
         {anime.map((e, index) => (
           <Link
             to={`/anime/${name}/${e.slug}`}

@@ -1,9 +1,12 @@
 import { useFetchAnimesByPage } from "../Functions/Fetch";
 import { Layout, Navbar,  OngoingAnimes, SmallCard, LoadingCardSmall, InfiniteScroll} from "../export";
+import { baseUrl } from "../variables/Variables";
 
 const Home = ({ ongoingAnimes, genres }) => {
   const { animes, hasMore, getAnime } = useFetchAnimesByPage('type=complete')
 
+  console.log(baseUrl);
+  
   return (
     <Layout >
       <Navbar getAnimes={getAnime} genres={genres}/>

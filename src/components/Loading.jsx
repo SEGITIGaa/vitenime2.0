@@ -68,7 +68,7 @@ const AnimeLoading = () => {
 const EpisodeLoading = () => {
   return (
     <div className="flex flex-col md:flex-row gap-5 mb-10">
-      <div className="flex flex-col gap-5 md:w-2/3">
+      <div className="flex flex-col gap-5">
         <div className="flex flex-col md:flex-row gap-5 justify-between">
           <div className="header md:w-2/3 bg-third rounded-md px-4 py-2 h-7 animate-pulse"></div>
           <div className="header w-full md:w-1/4 bg-third rounded-md px-4 py-2 h-10 animate-pulse"></div>

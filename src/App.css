@@ -63,7 +63,7 @@
     @apply flex items-center overflow-x-auto snap-x snap-mandatory p-2 gap-3 scroll-p-4;
   }
   .navbar {
-    @apply w-full flex items-center gap-6 py-4 pt-10;
+    @apply w-full flex items-center gap-6 py-4;
   }
   .header {
     @apply text-second font-clash font-semibold text-2xl;
@@ -75,7 +75,7 @@
     @apply flex items-center overflow-auto snap-x snap-mandatory scroll-p-2 gap-5;
   }
   .input-search {
-    @apply w-5/6 md:w-4/6 bg-third shadow-md outline-none ring-2 ring-slate-600 rounded-lg px-4 h-10 placeholder:text-xs placeholder:font-semibold border-second focus:placeholder:text-second/50 transition-all duration-300 text-second font-semibold focus:ring-indigo-500/70;
+    @apply bg-third w-full outline-none rounded-2xl px-4 h-10 placeholder:font-medium border-second focus:placeholder:text-second/50 transition-all duration-300 text-second font-medium text-sm pl-10 appearance-none;
   }
 
   /* PAGE ANIME */
@@ -114,6 +114,6 @@
   }
 
   .episode-frame {
-    @apply rounded-lg ring ring-third h-72 md:h-[450px] w-full;
+    @apply rounded-md ring ring-third h-72 md:h-[450px] w-full;
   }
 }
