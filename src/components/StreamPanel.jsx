@@ -8,7 +8,10 @@ const StreamPanel = ({ eps, nonce, setIframe, Iframe }) => {
         src={Iframe}
         className="episode-frame"
       ></iframe>
+      <div className="flex gap-3 flex-col lg:flex-row lg:items-center justify-between">
+        <h1 className="header lg:w-3/4">{eps.judul}</h1>
         <StreamServices episode={eps} nonce={nonce} setIframe={setIframe} />
+      </div>
     </div>
   );
 };

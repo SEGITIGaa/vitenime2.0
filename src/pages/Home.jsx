@@ -4,8 +4,6 @@ import { baseUrl } from "../variables/Variables";
 
 const Home = ({ ongoingAnimes, genres }) => {
   const { animes, hasMore, getAnime } = useFetchAnimesByPage('type=complete')
-
-  console.log(baseUrl);
   
   return (
     <Layout >

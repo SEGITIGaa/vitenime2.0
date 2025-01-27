@@ -6,6 +6,9 @@ const AnimeDetail = ({ anime }) => {
 
   const location = window.location.pathname;
 
+  console.log(anime);
+  
+
   const info = [
     { icons: "/date.svg", content: rilis },
     { icons: "/ongoing.svg", content: status },
@@ -39,9 +42,9 @@ const AnimeDetail = ({ anime }) => {
             </div>
 
             <h1 className="anime-title">{anime.judul}</h1>
-            <div className="row gap-5">
+            <div className="row gap-6">
               {info.map((e, i) => (
-                <div className="row items-center gap-2" key={i}>
+                <div className="row items-center gap-3" key={i}>
                   <img src={e.icons} alt="" className="anime-icons" />
                   <p className="anime-info">{e.content}</p>
                 </div>

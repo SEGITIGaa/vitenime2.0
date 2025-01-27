@@ -26,7 +26,7 @@ const Episode = () => {
             setIframe={setIframe}
           />
           <div className="col-to-row gap-10 mb-10">
-            <h1 className="header w-2/3">{eps.judul}</h1>
+            <DownloadLinks download={download} eps={eps} />
             <EpisodeDropdown
               anime={anime}
               name={name}
@@ -35,7 +35,6 @@ const Episode = () => {
               slug={slug}
             />
           </div>
-          <DownloadLinks download={download} eps={eps} />
         </>
       ) : (
         <EpisodeLoading />

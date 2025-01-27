@@ -25,21 +25,46 @@
     @apply hidden;
   }
 
-  .eps::-webkit-scrollbar,  body::-webkit-scrollbar{
+  .eps::-webkit-scrollbar,
+  body::-webkit-scrollbar {
     @apply bg-third w-2;
   }
 
-  .eps::-webkit-scrollbar-thumb,  body::-webkit-scrollbar-thumb{
+  .eps::-webkit-scrollbar-thumb,
+  body::-webkit-scrollbar-thumb {
     @apply bg-indigo-500/70 rounded-full;
   }
 
-  *{
+  * {
     scroll-behavior: smooth;
   }
-
 }
 
 @layer components {
+  /* fonts */
+
+
+  /* Sub Judul (H2, H3) */
+  .sub-header {
+    @apply font-fira font-semibold text-lg sm:text-xl md:text-2xl text-second/80 leading-snug;
+  }
+
+  /* Deskripsi/Penjelasan */
+  .description {
+    @apply font-satoshi font-normal text-sm sm:text-base md:text-lg leading-relaxed text-opacity-80;
+  }
+
+  /* Nomor atau Elemen Penting */
+  .number {
+    @apply font-clash font-bold text-lg sm:text-xl md:text-2xl text-accent/90;
+  }
+
+  /* Tombol/Label */
+  .label {
+    @apply font-satoshi font-medium text-xs sm:text-sm md:text-base text-second uppercase;
+  }
+  /* fonts */
+
   .col-to-row {
     @apply col md:row;
   }
@@ -63,10 +88,10 @@
     @apply flex items-center overflow-x-auto snap-x snap-mandatory p-2 gap-3 scroll-p-4;
   }
   .navbar {
-    @apply w-full flex items-center gap-6 py-4;
+    @apply w-full flex items-center;
   }
   .header {
-    @apply text-second font-clash font-semibold text-2xl;
+    @apply text-second font-clash font-semibold text-lg md:text-xl lg:text-2xl;
   }
   .arrow-btn {
     @apply text-second font-semibold text-sm flex items-center gap-3 cursor-pointer rounded-full transition-all duration-300;
@@ -89,19 +114,19 @@
     @apply w-4 h-4;
   }
   .anime-rating {
-    @apply bg-second rounded-full font-satoshi flex items-center gap-2 justify-center px-5 py-1 text-xs md:text-lg font-semibold text-third;
+    @apply bg-second rounded-full font-satoshi flex items-center gap-2 justify-center px-5 py-1 text-xs md:text-sm lg:text-lg font-semibold text-third;
   }
   .anime-studio {
-    @apply bg-third rounded-full text-center font-satoshi px-5 py-1 text-xs md:text-lg font-semibold text-second;
+    @apply bg-third rounded-full text-center font-satoshi px-5 py-1 text-xs md:text-sm lg:text-lg font-semibold text-second;
   }
   .anime-title {
-    @apply text-xl md:text-5xl text-second font-semibold font-clash;
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl text-second font-semibold font-clash;
   }
   .anime-info {
-    @apply text-xs md:text-xl font-semibold text-second/70;
+    @apply text-xs md:text-sm lg:text-lg font-semibold text-second/70;
   }
   .anime-icons {
-    @apply w-5 h-5 md:w-6 md:h-6 opacity-70;
+    @apply w-5 h-5 opacity-70;
   }
   .anime-genre {
     @apply text-second/70 text-xs md:text-xl font-semibold w-2/3;

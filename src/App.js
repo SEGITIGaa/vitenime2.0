@@ -13,10 +13,10 @@ function App() {
       <Suspense fallback={<LoadingPage/>}>
         <Routes>
           <Route path="/" element={<Home ongoingAnimes={ongoingAnimeList} genres={genres}/>} />
-          <Route path="/ongoing" element={<Ongoing animeList={ongoingAnimeList}/>} />
+          <Route path="/ongoing" element={<Ongoing animeList={ongoingAnimeList} genres={genres}/>} />
           <Route path="/genres" element={<GenresPage genres={genres} />} />
           <Route path="/anime/:slug" element={<Anime />} />
-          <Route path="/anime/genre/:slug" element={<AnimeByGenre />} />
+          <Route path="/anime/genre/:slug" element={<AnimeByGenre genres={genres} />} />
           <Route path="/anime/:name/:slug" element={<Episode />} />
         </Routes>
       </Suspense>

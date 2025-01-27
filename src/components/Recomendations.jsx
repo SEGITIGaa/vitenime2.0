@@ -13,7 +13,7 @@ const Recomendations = ({ rec, animes, filtered, req, anime, genres }) => {
       {/* Content */}
       <div className="flex flex-col lg:flex-row gap-6 p-2 lg:p-4">
         {/* Genre List */}
-        <div className="lg:w-1/4">
+        <div className="lg:w-1/4 p-2">
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-sm font-bold text-second">Genre</h3>
             <Link
