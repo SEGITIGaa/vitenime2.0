@@ -129,7 +129,7 @@
     @apply w-5 h-5 opacity-70;
   }
   .anime-genre {
-    @apply text-second/70 text-xs md:text-xl font-semibold w-2/3;
+    @apply text-second/70 text-xs md:text-lg border font-semibold w-2/3;
   }
   .bg-blured {
     @apply backdrop-blur-sm h-full w-full flex items-center justify-center;

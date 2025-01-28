@@ -2,12 +2,15 @@ import { Helmet } from "react-helmet";
 import { useAnimeDetail } from "../Functions/Fetch";
 
 const AnimeDetail = ({ anime }) => {
-  const { studio, rilis, status, skor, genre, durasi } = useAnimeDetail(anime);
+  const { studio, rilis, status, skor, genre, durasi, produser } =
+    useAnimeDetail(anime);
 
   const location = window.location.pathname;
 
   console.log(anime);
-  
+
+  const genreArray = genre.split(", ").map((item) => item.trim()); // Menghapus spasi ekstra
+  console.log(genreArray);
 
   const info = [
     { icons: "/date.svg", content: rilis },
@@ -19,17 +22,26 @@ const AnimeDetail = ({ anime }) => {
     <>
       <Helmet>
         <title>{`anime network - ${anime.judul}`}</title>
-        <meta name="description" content="This is the home page of my website" />
+        <meta
+          name="description"
+          content="This is the home page of my website"
+        />
         <meta property="og:title" content={`anime network - ${anime.judul}`} />
-        <meta property="og:description" content="This is the home page of my website" />
-        <meta property="og:image" content={anime.gambar}/>
-        <meta property="og:url" content={`https://animenetwork.vercel.app${location}`} />
+        <meta
+          property="og:description"
+          content="This is the home page of my website"
+        />
+        <meta property="og:image" content={anime.gambar} />
+        <meta
+          property="og:url"
+          content={`https://animenetwork.vercel.app${location}`}
+        />
       </Helmet>
 
       <div className="col-to-row items-center gap-5 md:gap-10 bg-frame bg-contain bg-top md:bg-left bg-no-repeat">
         <img src={anime.gambar} alt={anime.judul} className="anime-img" />
 
-        <div className="flex flex-col gap-10 w-full md:w-3/4">
+        <div className="flex flex-col gap-8 w-full md:w-3/4">
           <div className="flex flex-col gap-5">
             <div className="flex items-center gap-2">
               {skor && (
@@ -51,10 +63,17 @@ const AnimeDetail = ({ anime }) => {
               ))}
             </div>
           </div>
-
-          <p className="anime-genre">{genre}</p>
+          <div className="flex flex-wrap gap-2">
+            {genreArray.map((Element, index) => (
+              <span
+                className="inline-block bg-third text-white text-xs font-semibold px-3 py-1 rounded-full"
+                key={index}
+              >
+                {Element}
+              </span>
+            ))}
+          </div>
         </div>
-
       </div>
     </>
   );

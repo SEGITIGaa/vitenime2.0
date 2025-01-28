@@ -156,6 +156,7 @@ export function useFetchEpisode(slug, name) {
 export function useAnimeDetail(anime) {
   const animeDetails = [
     "studio",
+    "produser",
     "rilis",
     "status",
     "skor",

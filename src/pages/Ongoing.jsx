@@ -7,8 +7,7 @@ const Ongoing = ({genres}) => {
   return (
     <Layout>
       <Navbar ongoingAnimes={animes} setRequest={setRequest} getAnimes={getAnime} genres={genres}/>
-      {/* <BackBtn /> */}
-      <h1 className="header mt-8">Ongoing</h1>
+      <h1 className="header mt-16">Ongoing</h1>
       <InfiniteScroll dataLength={animes.length} hasMore={hasMore} next={getAnime} loader={<LoadingCardSmall />} className="infinity-scroll">
         {animes.map((anime, index) => (
           <SmallCard anime={anime} key={index} />

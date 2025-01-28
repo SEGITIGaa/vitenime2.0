@@ -3,7 +3,7 @@ import { Card, Link, LoadingCard, Suspense} from "../export";
 const OngoingAnimes = ({ ongoingAnimes }) => {
 
   return (
-    <section className="col gap-8">
+    <section className="col gap-8 mt-16">
       <div className="w-full items-center justify-between flex">
         <h1 className="header">Lagi ongoing</h1>
         <Link to="/ongoing" className="arrow-btn">
