@@ -3,11 +3,24 @@ import { ArrowDownUp } from "lucide-react";
 
 const Episodes = ({ episodes, slug }) => {
   const [sortir, setSortir] = useState(false);
-  const reversed_episode = sortir ? [...episodes].reverse() : episodes;
+  const formattedData = episodes.map((item) => {
+    const match = item.judul.match(/Episode \d+/); // Cari "Episode X"
+    return {
+      judul: match ? match[0] : null, // Ambil "Episode X"
+      slug: item.slug,
+      tanggal: item.tanggal,
+    };
+  });
+  const reversed_episode = sortir
+    ? [...formattedData].reverse()
+    : formattedData;
 
   const ChangeSortir = () => {
     setSortir(!sortir);
   };
+
+  console.log(reversed_episode);
+
   return (
     <div className="flex flex-col gap-5">
       <div className=" flex items-center justify-between">
@@ -25,19 +38,19 @@ const Episodes = ({ episodes, slug }) => {
             <Link
               to={`/anime/${slug}/${episode.slug}`}
               key={index}
-              className="flex flex-row md:items-center lg:gap-x-5 justify-between hover:bg-third/50 rounded-xl lg:px-4 px-2 py-3"
+              className="flex items-center gap-3 hover:bg-third/50 rounded-xl lg:px-4 px-2 py-3"
             >
-              <div className="flex items-center gap-x-3 lg:gap-x-5 mb-3 md:mb-0">
-                <div className="text-xl md:text-2xl font-fira font-semibold text-second bg-third rounded-lg h-12 w-12 md:h-16 md:w-16 flex items-center justify-center">
-                  {index + 1}
-                </div>
-                <h3 className="font-semibold text-xs md:text-lg lg:text-xl text-second font-satoshi">
+              <div className="text-xl md:text-2xl font-fira font-semibold text-second bg-third rounded-lg h-12 w-12 md:h-16 md:w-16 flex items-center justify-center">
+                {index + 1}
+              </div>
+              <div className="flex col-to-row gap-2 items-start lg:items-center w-full lg:justify-between">
+                <h3 className="font-semibold text-sm md:text-lg lg:text-xl text-second font-satoshi">
                   {episode.judul}
                 </h3>
+                <p className="font-semibold text-xs md:text-sm text-second/70 font-satoshi text-left">
+                  {episode.tanggal}
+                </p>
               </div>
-              <p className="font-semibold text-xs md:text-sm text-second/70 font-satoshi text-left">
-                {episode.tanggal}
-              </p>
             </Link>
           ))}
         </div>

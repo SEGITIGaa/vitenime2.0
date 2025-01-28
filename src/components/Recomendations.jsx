@@ -35,12 +35,12 @@ const Recomendations = ({ rec, animes, filtered, req, anime, genres }) => {
               </Link>
             ))}
           </div>
-          <div className="flex lg:hidden flex-row lg:flex-col gap-5">
+          <div className="flex lg:hidden flex-row lg:flex-col gap-2">
             {genres.slice(0, 3).map((genre, index) => (
               <Link
                 to={`/anime/genre/${genre.slug}`}
                 key={index}
-                className="block text-sm font-medium text-second/70 hover:text-second hover:bg-main/50 rounded-lg transition"
+                className="inline-block bg-main/70 hover:bg-main text-white text-xs font-semibold px-3 py-1 rounded-full"
                 aria-label={`Genre ${genre.judul}`}
               >
                 {genre.judul}
