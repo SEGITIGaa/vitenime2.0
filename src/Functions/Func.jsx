@@ -7,7 +7,7 @@ export function useNavbar() {
   const [recomendation, setRecomendation] = useState(false);
   const [onFocus, setFocus] = useState("");
   const [anime, setAnime] = useState("");
-  const [inputValue, setInputValue] = useState(""); // Tambahkan state untuk mengontrol input value
+  const [inputValue, setInputValue] = useState(""); 
   const placeholder =
     onFocus !== "" ? `coba tonton "${onFocus}"` : "Cari di sini..";
 

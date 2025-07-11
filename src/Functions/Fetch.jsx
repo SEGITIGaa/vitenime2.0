@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useState, useEffect, useMemo } from "../export";
 import { baseUrl } from "../variables/Variables";
 
@@ -52,11 +53,7 @@ export function useFetchAnimesByPage(req) {
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
 
-  useEffect(() => {
-    getAnime();
-  }, []);
-
-  const getAnime = async (reset, query = request) => {
+  const getAnime = useCallback(async (reset, query = request) => {
     if (reset) {
       setPage(1);
       setAnimes([]);
@@ -77,16 +74,21 @@ export function useFetchAnimesByPage(req) {
         const newData = reset
           ? data
           : data.filter(
-              (anime) =>
-                !prevAnimes.some((prevAnime) => prevAnime.slug === anime.slug)
-            );
+            (anime) =>
+              !prevAnimes.some((prevAnime) => prevAnime.slug === anime.slug)
+          );
         return [...prevAnimes, ...newData];
       });
       setPage((prevPage) => (reset ? 2 : prevPage + 1));
     } else {
       setHasMore(false);
     }
-  };
+  }, [page, request]);
+
+  useEffect(() => {
+    getAnime();
+  }, [getAnime]);
+
 
   const filteredAnime = useMemo(() => {
     return animes.filter(
@@ -119,7 +121,7 @@ export function useFetchEpisode(slug, name) {
     "d1080pmkv",
   ];
 
-  const getEpisodeData = async () => {
+  const getEpisodeData = useCallback(async () => {
     try {
       const [episodeResponse, animeResponse, nonceResponse] = await Promise.all([
         fetch(`${baseUrl}episode/${slug}`, { headers }),
@@ -144,11 +146,11 @@ export function useFetchEpisode(slug, name) {
     } catch (error) {
       console.error("Error fetching data:", error);
     }
-  };
+  }, [name, slug])
 
   useEffect(() => {
     getEpisodeData();
-  }, [slug, name]);
+  }, [getEpisodeData]);
 
   return { eps, Iframe, nonce, anime, handleShow, download, setIframe, show };
 }

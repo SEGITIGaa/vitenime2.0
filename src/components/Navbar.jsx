@@ -1,5 +1,5 @@
 import { useNavbar } from "../Functions/Func";
-import { BackBtn, Genres, Recomendations } from "../export";
+import { Recomendations } from "../export";
 import { CircleX, Search, Sparkles } from "lucide-react";
 
 const Navbar = ({ genres }) => {
@@ -28,8 +28,8 @@ const Navbar = ({ genres }) => {
           type="search"
           name="search"
           id="search"
-          value={inputValue} // Hubungkan dengan state inputValue
-          onChange={(e) => setInputValue(e.target.value)} // Sinkronkan perubahan input dengan state
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
           onFocus={HandleFocus}
           onBlur={() => setFocus("")}
           placeholder={placeholder}

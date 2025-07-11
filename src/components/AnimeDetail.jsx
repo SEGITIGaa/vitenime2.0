@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet";
 import { useAnimeDetail } from "../Functions/Fetch";
 
 const AnimeDetail = ({ anime }) => {
-  const { studio, rilis, status, skor, genre, durasi, produser } =
+  const { studio, rilis, status, skor, genre, durasi } =
     useAnimeDetail(anime);
 
   const location = window.location.pathname;

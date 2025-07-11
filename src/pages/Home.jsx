@@ -1,6 +1,5 @@
 import { useFetchAnimesByPage } from "../Functions/Fetch";
 import { Layout, Navbar,  OngoingAnimes, SmallCard, LoadingCardSmall, InfiniteScroll} from "../export";
-import { baseUrl } from "../variables/Variables";
 
 const Home = ({ ongoingAnimes, genres }) => {
   const { animes, hasMore, getAnime } = useFetchAnimesByPage('type=complete')
@@ -16,7 +15,7 @@ const Home = ({ ongoingAnimes, genres }) => {
       <section className="col-start pt-5">
         <h1 className="header">Completed</h1>
 
-        <InfiniteScroll dataLength={animes.length} hasMore={hasMore} next={getAnime} loader={<LoadingCardSmall />} className="infinity-scroll">
+        <InfiniteScroll dataLength={animes.length} hasMore={hasMore} next={getAnime} loader={<LoadingCardSmall />} className="infinity-scroll hide-scrollbar">
           {animes.map((anime, index) => (
             <SmallCard anime={anime} key={index} />
           ))}

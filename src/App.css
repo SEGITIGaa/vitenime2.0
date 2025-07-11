@@ -18,10 +18,11 @@
 }
 
 @layer utilities {
-  /* body::-webkit-scrollbar {
-    @apply hidden;
-  } */
   .carousel::-webkit-scrollbar {
+    @apply hidden;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
     @apply hidden;
   }
 
@@ -42,7 +43,6 @@
 
 @layer components {
   /* fonts */
-
 
   /* Sub Judul (H2, H3) */
   .sub-header {

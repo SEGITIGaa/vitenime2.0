@@ -1,8 +1,9 @@
-import { Card, Genres, Link } from "../export";
+import { Link } from "../export";
 
 const Recomendations = ({ rec, animes, filtered, req, anime, genres }) => {
   return rec ? (
     <div className="absolute top-16 left-0 z-50 w-full bg-third rounded-lg shadow-lg">
+
       {/* Header */}
       <div className="p-4 border-b border-second/20">
         <p className="text-base font-semibold text-second/70">
@@ -106,6 +107,7 @@ const Recomendations = ({ rec, animes, filtered, req, anime, genres }) => {
           </div>
         </div>
       </div>
+
     </div>
   ) : null;
 };
