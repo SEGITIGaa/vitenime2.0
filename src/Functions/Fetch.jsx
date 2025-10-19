@@ -47,61 +47,26 @@ export function useFetchAnimeDetail(query) {
   return animeData;
 }
 
-// Fungsi baru untuk search menggunakan endpoint /anime-list
-export function useFetchAnimeSearch() {
-  const [searchResults, setSearchResults] = useState([]);
-  const [isSearching, setIsSearching] = useState(false);
-  const [searchError, setSearchError] = useState(null);
-
-  const searchAnime = useCallback(async (query) => {
-    if (!query || query.trim() === "") {
-      setSearchResults([]);
-      return;
-    }
-
-    setIsSearching(true);
-    setSearchError(null);
-
-    try {
-      const response = await fetch(
-        `${baseUrl}anime-list?search=${encodeURIComponent(query)}`,
-        { headers }
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to search anime");
-      }
-
-      const data = await response.json();
-      setSearchResults(Array.isArray(data) ? data : []);
-    } catch (error) {
-      console.error("Error searching anime:", error);
-      setSearchError(error.message);
-      setSearchResults([]);
-    } finally {
-      setIsSearching(false);
-    }
-  }, []);
-
-  const clearSearch = useCallback(() => {
-    setSearchResults([]);
-    setSearchError(null);
-  }, []);
-
-  return { 
-    searchResults, 
-    isSearching, 
-    searchError, 
-    searchAnime, 
-    clearSearch 
-  };
-}
-
 export function useFetchAnimesByPage(req) {
   const [request, setRequest] = useState(req);
   const [animes, setAnimes] = useState([]);
+  const [allAnimeList, setAllAnimeList] = useState([]);
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
+
+  // Fetch complete anime list for search/filter
+  useEffect(() => {
+    const fetchAnimeList = async () => {
+      try {
+        const response = await fetch(`${baseUrl}anime-list`, { headers });
+        const data = await response.json();
+        setAllAnimeList(data);
+      } catch (error) {
+        console.error("Error fetching anime list:", error);
+      }
+    };
+    fetchAnimeList();
+  }, []);
 
   const getAnime = useCallback(async (reset, query = request) => {
     if (reset) {
@@ -147,7 +112,7 @@ export function useFetchAnimesByPage(req) {
     );
   }, [animes]);
 
-  return { filteredAnime, animes, hasMore, getAnime, setRequest, request };
+  return { filteredAnime, animes, allAnimeList, hasMore, getAnime, setRequest, request };
 }
 
 export function useFetchEpisode(slug, name) {
