@@ -2,7 +2,7 @@ import { useState } from "../export";
 import { useFetchAnimesByPage } from "./Fetch";
 
 export function useNavbar() {
-  const { filteredAnime, animes, allAnimeList, getAnime, setRequest, request } =
+  const { filteredAnime, animes, getAnime, setRequest, request } =
     useFetchAnimesByPage("type=complete");
   const [recomendation, setRecomendation] = useState(false);
   const [onFocus, setFocus] = useState("");
@@ -86,7 +86,6 @@ export function useNavbar() {
     onFocus,
     setFocus,
     inputValue,
-    setInputValue,
-    allAnimeList
+    setInputValue
   };
 }

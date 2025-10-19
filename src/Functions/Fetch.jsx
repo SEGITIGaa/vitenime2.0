@@ -50,23 +50,8 @@ export function useFetchAnimeDetail(query) {
 export function useFetchAnimesByPage(req) {
   const [request, setRequest] = useState(req);
   const [animes, setAnimes] = useState([]);
-  const [allAnimeList, setAllAnimeList] = useState([]);
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
-
-  // Fetch complete anime list for initial recommendations
-  useEffect(() => {
-    const fetchAnimeList = async () => {
-      try {
-        const response = await fetch(`${baseUrl}anime-list`, { headers });
-        const data = await response.json();
-        setAllAnimeList(data);
-      } catch (error) {
-        console.error("Error fetching anime list:", error);
-      }
-    };
-    fetchAnimeList();
-  }, []);
 
   const getAnime = useCallback(async (reset, query = request) => {
     if (reset) {
@@ -112,7 +97,7 @@ export function useFetchAnimesByPage(req) {
     );
   }, [animes]);
 
-  return { filteredAnime, animes, allAnimeList, hasMore, getAnime, setRequest, request };
+  return { filteredAnime, animes, hasMore, getAnime, setRequest, request };
 }
 
 export function useFetchEpisode(slug, name) {
