@@ -2,13 +2,14 @@ import { useState } from "../export";
 import { useFetchAnimesByPage } from "./Fetch";
 
 export function useNavbar() {
-  const { filteredAnime, animes, allAnimeList, getAnime, setRequest, request } =
+  const { filteredAnime, animes, getAnime, setRequest, request } =
     useFetchAnimesByPage("type=complete");
   const [recomendation, setRecomendation] = useState(false);
   const [onFocus, setFocus] = useState("");
   const [anime, setAnime] = useState("");
   const [inputValue, setInputValue] = useState(""); 
   const [searchResults, setSearchResults] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
   const placeholder =
     onFocus !== "" ? `coba tonton "${onFocus}"` : "Cari di sini..";
 
@@ -28,24 +29,44 @@ export function useNavbar() {
     setInputValue(""); 
     setFocus("");
     setSearchResults([]);
+    setIsSearching(false);
   };
 
-  const Submited = (e) => {
+  const Submited = async (e) => {
     e.preventDefault();
-    const value = inputValue.trim().toLowerCase();
+    const value = inputValue.trim();
     
     if (value === "") {
       setAnime("");
       setSearchResults([]);
       setRequest("type=complete");
       getAnime(true, "type=complete");
+      setIsSearching(false);
     } else {
       setAnime(value);
-      // Filter dari allAnimeList berdasarkan nama
-      const filtered = allAnimeList.filter((item) =>
-        item.judul.toLowerCase().includes(value)
-      );
-      setSearchResults(filtered);
+      setIsSearching(true);
+      
+      try {
+        // Gunakan endpoint search API
+        const response = await fetch(
+          `https://animenetwork.vercel.app/api/anime?search=${encodeURIComponent(value)}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "Origin": "https://animenetwork.vercel.app",
+              "User-Agent": "Browser",
+            }
+          }
+        );
+        
+        const data = await response.json();
+        setSearchResults(data);
+        setIsSearching(false);
+      } catch (error) {
+        console.error("Error searching anime:", error);
+        setSearchResults([]);
+        setIsSearching(false);
+      }
     }
   };
 
@@ -61,6 +82,7 @@ export function useNavbar() {
     animes,
     filteredAnime,
     searchResults,
+    isSearching,
     onFocus,
     setFocus,
     inputValue,
