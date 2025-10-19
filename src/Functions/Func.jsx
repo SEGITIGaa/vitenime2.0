@@ -9,7 +9,6 @@ export function useNavbar() {
   const [anime, setAnime] = useState("");
   const [inputValue, setInputValue] = useState(""); 
   const [searchResults, setSearchResults] = useState([]);
-  const [isSearching, setIsSearching] = useState(false);
   const placeholder =
     onFocus !== "" ? `coba tonton "${onFocus}"` : "Cari di sini..";
 
@@ -29,44 +28,24 @@ export function useNavbar() {
     setInputValue(""); 
     setFocus("");
     setSearchResults([]);
-    setIsSearching(false);
   };
 
-  const Submited = async (e) => {
+  const Submited = (e) => {
     e.preventDefault();
-    const value = inputValue.trim();
+    const value = inputValue.trim().toLowerCase();
     
     if (value === "") {
       setAnime("");
       setSearchResults([]);
       setRequest("type=complete");
       getAnime(true, "type=complete");
-      setIsSearching(false);
     } else {
       setAnime(value);
-      setIsSearching(true);
-      
-      try {
-        // Gunakan endpoint search API
-        const response = await fetch(
-          `https://animenetwork.vercel.app/api/anime?search=${encodeURIComponent(value)}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              "Origin": "https://animenetwork.vercel.app",
-              "User-Agent": "Browser",
-            }
-          }
-        );
-        
-        const data = await response.json();
-        setSearchResults(data);
-        setIsSearching(false);
-      } catch (error) {
-        console.error("Error searching anime:", error);
-        setSearchResults([]);
-        setIsSearching(false);
-      }
+      // Filter dari allAnimeList berdasarkan nama
+      const filtered = allAnimeList.filter((item) =>
+        item.judul.toLowerCase().includes(value)
+      );
+      setSearchResults(filtered);
     }
   };
 
@@ -82,11 +61,9 @@ export function useNavbar() {
     animes,
     filteredAnime,
     searchResults,
-    isSearching,
     onFocus,
     setFocus,
     inputValue,
-    setInputValue,
-    allAnimeList
+    setInputValue
   };
 }

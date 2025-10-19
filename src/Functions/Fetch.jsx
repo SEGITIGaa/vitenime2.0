@@ -54,7 +54,7 @@ export function useFetchAnimesByPage(req) {
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
 
-  // Fetch complete anime list for initial recommendations
+  // Fetch complete anime list for search/filter
   useEffect(() => {
     const fetchAnimeList = async () => {
       try {

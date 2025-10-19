@@ -1,6 +1,6 @@
 import { Link } from "../export";
 
-const Recomendations = ({ rec, animes, filtered, searchResults, isSearching, req, anime, genres }) => {
+const Recomendations = ({ rec, animes, filtered, searchResults, req, anime, genres }) => {
   // Gunakan searchResults jika ada pencarian, jika tidak gunakan filtered
   const displayAnimes = anime !== "" ? searchResults : filtered;
   
@@ -69,41 +69,43 @@ const Recomendations = ({ rec, animes, filtered, searchResults, isSearching, req
         <div className="flex flex-col gap-6 pr-2 md:w-3/4 overflow-y-scroll eps max-h-80 h-full">
           <h3 className="text-sm font-bold text-second">Anime</h3>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-            {isSearching ? (
-              <div className="flex justify-center items-center w-full h-32 col-span-2 lg:col-span-3">
-                <p className="text-second font-medium animate-pulse">
-                  Sabar, lagi nyari..
-                </p>
-              </div>
-            ) : displayAnimes.length !== 0 ? (
-              displayAnimes.slice(0, 10).map((animeItem, index) => (
-                <Link
-                  to={`/anime/${animeItem.slug}`}
-                  key={index}
-                  className="relative block overflow-hidden rounded-lg transition"
-                  aria-label={`Anime ${animeItem.judul}`}
-                >
-                  <img
-                    src={animeItem.gambar}
-                    alt={`Poster ${animeItem.judul}`}
-                    className="w-full h-48 object-cover rounded-lg group-hover:scale-105 transition-transform"
-                  />
-                  <div className="py-3">
-                    <p className="text-sm font-semibold text-second truncate">
-                      {animeItem.judul}
-                    </p>
-                    {animeItem.eps && (
-                      <span className="absolute top-3 left-3 text-xs font-semibold bg-main/80 text-white px-2 py-1 rounded-lg">
-                        EPS {animeItem.eps}
-                      </span>
-                    )}
-                  </div>
-                </Link>
-              ))
+            {displayAnimes.length !== 0 ? (
+              req !== "type=ongoing" ? (
+                displayAnimes.slice(0, 10).map((anime, index) => (
+                  <Link
+                    to={`/anime/${anime.slug}`}
+                    key={index}
+                    className="relative block overflow-hidden rounded-lg transition"
+                    aria-label={`Anime ${anime.judul}`}
+                  >
+                    <img
+                      src={anime.gambar}
+                      alt={`Poster ${anime.judul}`}
+                      className="w-full h-48 object-cover rounded-lg group-hover:scale-105 transition-transform"
+                    />
+                    <div className="py-3">
+                      <p className="text-sm font-semibold text-second truncate">
+                        {anime.judul}
+                      </p>
+                      {anime.eps && (
+                        <span className="absolute top-3 left-3 text-xs font-semibold bg-main/80 text-white px-2 py-1 rounded-lg">
+                          EPS {anime.eps}
+                        </span>
+                      )}
+                    </div>
+                  </Link>
+                ))
+              ) : (
+                <div className="flex justify-center items-center w-full h-32">
+                  <p className="text-second font-medium animate-pulse">
+                    Memuat data...
+                  </p>
+                </div>
+              )
             ) : (
-              <div className="flex justify-center items-center w-full h-32 col-span-2 lg:col-span-3">
+              <div className="flex justify-center items-center w-full h-32">
                 <p className="text-second font-medium animate-bounce">
-                  {anime !== "" ? "Aduh anying ga ada 😭" : "Sedang mencari..."}
+                  {anime !== "" ? "Anime tidak ditemukan..." : "Sedang mencari..."}
                 </p>
               </div>
             )}
