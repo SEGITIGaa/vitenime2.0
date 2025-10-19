@@ -1,6 +1,6 @@
 import { useNavbar } from "../Functions/Func";
 import { Recomendations } from "../export";
-import { CircleX, Search, Sparkles } from "lucide-react";
+import { CircleX, Search, Sparkles, Loader2 } from "lucide-react";
 
 const Navbar = ({ genres }) => {
   const {
@@ -8,7 +8,6 @@ const Navbar = ({ genres }) => {
     HandleFocus,
     Batal,
     recomendation,
-    anime,
     placeholder,
     request,
     animes,
@@ -16,6 +15,9 @@ const Navbar = ({ genres }) => {
     setFocus,
     inputValue,
     setInputValue,
+    searchResults,
+    isSearching,
+    isSearchMode,
   } = useNavbar();
 
   return (
@@ -37,7 +39,11 @@ const Navbar = ({ genres }) => {
           autoComplete="off"
         />
         <Sparkles className="absolute left-4 w-4 h-4 bg-third text-second/70 peer-focus:text-second peer-focus:rotate-45 transition-all duration-300" />
-        {!recomendation ? (
+        {isSearching ? (
+          <div className="absolute right-4 bg-third">
+            <Loader2 className="w-5 h-5 text-second/70 animate-spin" />
+          </div>
+        ) : !recomendation ? (
           <div className="absolute right-4 bg-third cursor-pointer">
             <Search
               className="w-5 h-5 text-second/70 hover:text-indigo-500"
@@ -57,11 +63,12 @@ const Navbar = ({ genres }) => {
         )}
         <Recomendations
           rec={recomendation}
-          animes={animes}
+          animes={isSearchMode ? searchResults : animes}
           req={request}
-          filtered={filteredAnime}
-          anime={anime}
+          filtered={isSearchMode ? searchResults : filteredAnime}
+          anime={inputValue}
           genres={genres}
+          isSearchMode={isSearchMode}
         />
       </form>
     </div>

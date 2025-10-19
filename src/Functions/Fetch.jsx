@@ -47,6 +47,56 @@ export function useFetchAnimeDetail(query) {
   return animeData;
 }
 
+// Fungsi baru untuk search menggunakan endpoint /anime-list
+export function useFetchAnimeSearch() {
+  const [searchResults, setSearchResults] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
+  const [searchError, setSearchError] = useState(null);
+
+  const searchAnime = useCallback(async (query) => {
+    if (!query || query.trim() === "") {
+      setSearchResults([]);
+      return;
+    }
+
+    setIsSearching(true);
+    setSearchError(null);
+
+    try {
+      const response = await fetch(
+        `${baseUrl}anime-list?search=${encodeURIComponent(query)}`,
+        { headers }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to search anime");
+      }
+
+      const data = await response.json();
+      setSearchResults(Array.isArray(data) ? data : []);
+    } catch (error) {
+      console.error("Error searching anime:", error);
+      setSearchError(error.message);
+      setSearchResults([]);
+    } finally {
+      setIsSearching(false);
+    }
+  }, []);
+
+  const clearSearch = useCallback(() => {
+    setSearchResults([]);
+    setSearchError(null);
+  }, []);
+
+  return { 
+    searchResults, 
+    isSearching, 
+    searchError, 
+    searchAnime, 
+    clearSearch 
+  };
+}
+
 export function useFetchAnimesByPage(req) {
   const [request, setRequest] = useState(req);
   const [animes, setAnimes] = useState([]);

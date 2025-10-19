@@ -71,7 +71,7 @@ const EpisodesOnEpisode = ({ anime, slug, name, show }) => {
           <Link
             to={`/anime/${name}/${e.slug}`}
             key={index}
-            className={`flex items-center lg:items-start gap-4 px-4 py-2 rounded-lg border border-third transition-all duration-300 ${
+            className={`flex items-center gap-4 px-4 py-2 rounded-lg border border-third transition-all duration-300 ${
               e.slug === slug ? "bg-second text-third" : "text-second bg-third"
             }`}
           >
